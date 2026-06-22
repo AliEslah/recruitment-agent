@@ -1,0 +1,1 @@
+"""Recruitment document domain package."""
