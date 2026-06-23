@@ -1,14 +1,19 @@
-# License Decision Required
+# License Decision Resolved
 
-No open-source license has been selected for this repository.
+The license decision is resolved. This repository uses the GNU Affero General Public License v3.0 only (`AGPL-3.0-only`).
 
-Before publishing publicly, the maintainer must choose and add a `LICENSE` file. Until a license is added, others do not have permission to use, modify, redistribute, or publish this code beyond viewing it under GitHub's default terms.
+The root `LICENSE` file contains the AGPL-3.0 text, and `README.md` now states the license status.
 
-## Maintainer Checklist
+## Why AGPL-3.0-Only
 
-- Choose a license that matches the intended project goals.
-- Add the full license text as `LICENSE` at the repository root.
-- Add matching license metadata to package files if applicable.
-- Update `README.md` and this file with the final license choice.
-- Confirm third-party dependency licenses are compatible with the chosen license.
+AGPL-3.0 was selected because this project is a networked recruiting application. The license preserves user and community access to source code when modified versions are run as network services, which fits the project's local-first, auditable, no-fake-AI design goals.
 
+The project uses `AGPL-3.0-only`, not "AGPL-3.0-or-later", so recipients may use the code under version 3.0 of the GNU Affero General Public License only.
+
+## Commercial Licensing Path
+
+Commercial licensing is available from the maintainer for organizations that need terms outside the AGPL, including private or proprietary deployments, managed hosting, enterprise support, implementation help, and production deployment review.
+
+Commercial terms require a separate written agreement with the maintainer. Do not assume private deployment, managed hosting, or proprietary redistribution rights unless those rights are explicitly granted in a commercial license.
+
+See `COMMERCIAL.md` for the public commercial licensing note.

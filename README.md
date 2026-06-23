@@ -1,8 +1,10 @@
 # AI Recruiting Decision Platform
 
+[![License: AGPL-3.0-only](https://img.shields.io/badge/License-AGPL--3.0--only-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 Backend-first MVP for an AI recruiting decision workflow. The app is FastAPI + PostgreSQL + LangGraph and uses LM Studio through its local OpenAI-compatible API. It does not call OpenAI cloud, Anthropic, Gemini, or any external LLM provider.
 
-No open-source license has been selected yet. Do not reuse this code until a license is added.
+This repository is licensed under the GNU Affero General Public License v3.0 only (`AGPL-3.0-only`). Commercial licensing, private deployment terms, managed hosting, and enterprise support are available from the maintainer; see [COMMERCIAL.md](COMMERCIAL.md).
 
 ## What This MVP Does
 
@@ -554,7 +556,10 @@ Pytest markers separate `unit`, `db`, `mailpit`, `lmstudio`, `e2e`, and `slow` t
 - [Next steps](docs/NEXT_STEPS.md)
 - [Open-source readiness](docs/OPEN_SOURCE_READINESS.md)
 - [License decision](docs/LICENSE_DECISION.md)
+- [Commercial licensing](COMMERCIAL.md)
 
 ## License Status
 
-No open-source license has been selected yet. The maintainer must add a `LICENSE` file before publishing if they want others to use, modify, or redistribute the code.
+This project is released under `AGPL-3.0-only`; see [LICENSE](LICENSE). If you run a modified version as a network service, review the AGPL source-availability obligations before deployment.
+
+Commercial licensing is available for private deployments, managed hosting, proprietary integrations, and enterprise support. See [COMMERCIAL.md](COMMERCIAL.md).

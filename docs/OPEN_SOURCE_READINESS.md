@@ -4,9 +4,9 @@ Date: 2026-06-23
 
 ## Summary
 
-The repository is cleaner and safer for public GitHub visibility. Public docs, contribution metadata, security guidance, GitHub templates, ignore rules, eval report policy, and dependency-audit notes have been added or updated.
+The repository is cleaner and safer for public GitHub visibility. Public docs, contribution metadata, security guidance, GitHub templates, ignore rules, eval report policy, dependency-audit notes, and AGPL-3.0-only licensing have been added or updated.
 
-Publication as a reusable open-source project is blocked until the maintainer chooses and adds a license.
+The missing-license blocker is resolved. The project is licensed under `AGPL-3.0-only`, with a commercial licensing path documented for private deployments, managed hosting, and enterprise support.
 
 ## What Was Cleaned
 
@@ -25,6 +25,8 @@ Publication as a reusable open-source project is blocked until the maintainer ch
 - `CONTRIBUTING.md`
 - `SECURITY.md`
 - `CODE_OF_CONDUCT.md`
+- `LICENSE`
+- `COMMERCIAL.md`
 - `docs/LICENSE_DECISION.md`
 - `docs/OPEN_SOURCE_READINESS.md`
 - `.github/ISSUE_TEMPLATE/bug_report.md`
@@ -83,7 +85,9 @@ Those files did not exist before this cleanup.
 
 ## License Status
 
-No open-source license has been selected. `docs/LICENSE_DECISION.md` documents the maintainer decision needed before publication, and `README.md` warns readers not to reuse the code until a license is added.
+The project is licensed under `AGPL-3.0-only`. `LICENSE` contains the GNU Affero General Public License v3.0 text, `README.md` states the license status, and `docs/LICENSE_DECISION.md` explains the resolved decision.
+
+Commercial licensing is documented in `COMMERCIAL.md` for organizations that need terms outside the AGPL, including private deployments, managed hosting, proprietary integrations, and enterprise support.
 
 ## Verification Results
 
@@ -148,7 +152,6 @@ curl -sS -i http://localhost:8000/health/llm
 
 ## Remaining Known Limitations
 
-- License is not selected.
 - Frontend audit still has 1 low and 2 moderate advisories with no safe non-disruptive fix.
 - Initial Alembic migration still uses `Base.metadata.create_all()`.
 - Full production auth, retention, rate limiting, deployment hardening, and legal/compliance review remain out of scope for the MVP.
@@ -159,11 +162,11 @@ curl -sS -i http://localhost:8000/health/llm
 
 Safe for public visibility after maintainer review: yes.
 
-Safe to publish as reusable open source: no, not until a `LICENSE` file is added.
+Safe to publish as reusable open source: yes, after maintainer review of the prepared changes.
 
 ## Checklist Before Public GitHub Push
 
-- [ ] Choose and add a `LICENSE` file.
+- [x] Choose and add a `LICENSE` file.
 - [x] Confirm no real secrets are committed.
 - [x] Confirm no private local paths are committed.
 - [x] Confirm no runtime data, uploads, logs, local DBs, or generated failure files are committed.
