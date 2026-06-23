@@ -7,8 +7,8 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from recruitment_agent.core.config import get_settings
-from recruitment_agent.db.base import Base
+from app.core.config import get_settings
+from app.db.models import Base
 
 config = context.config
 
@@ -19,7 +19,7 @@ target_metadata = Base.metadata
 
 
 def get_url() -> str:
-    return get_settings().database.url
+    return get_settings().database_url
 
 
 def run_migrations_offline() -> None:

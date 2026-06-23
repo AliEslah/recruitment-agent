@@ -14,3 +14,14 @@ wheels/
 .env.*
 !.env.example
 !.env.test.example
+
+# Runtime data
+backend/data/resumes/
+backend/data/llm_failures/
+
+# Frontend generated files
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/tsconfig.tsbuildinfo

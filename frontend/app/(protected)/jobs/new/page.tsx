@@ -1,0 +1,111 @@
+"use client";
+
+import { useMutation } from "@tanstack/react-query";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { FormEvent, useState } from "react";
+import { z } from "zod";
+import { Button, ErrorState, Field, inputClass, PageHeader, Panel, textareaClass } from "@/components/ui";
+import { api } from "@/lib/api";
+import { emptyToNull } from "@/lib/format";
+import type { Job } from "@/lib/types";
+
+const jobSchema = z.object({
+  title: z.string().min(1, "Title is required."),
+  raw_jd: z.string().min(1, "Raw JD is required."),
+});
+
+export default function NewJobPage() {
+  const router = useRouter();
+  const [createdJob, setCreatedJob] = useState<Job | null>(null);
+  const [form, setForm] = useState({
+    title: "",
+    department: "",
+    seniority: "",
+    location: "",
+    employment_type: "",
+    salary_range: "",
+    raw_jd: "",
+  });
+
+  const createMutation = useMutation({
+    mutationFn: () => {
+      jobSchema.parse(form);
+      return api.createJob({
+        title: form.title.trim(),
+        department: emptyToNull(form.department),
+        seniority: emptyToNull(form.seniority),
+        location: emptyToNull(form.location),
+        employment_type: emptyToNull(form.employment_type),
+        salary_range: emptyToNull(form.salary_range),
+        raw_jd: form.raw_jd.trim(),
+      });
+    },
+    onSuccess: setCreatedJob,
+  });
+
+  const calibrateMutation = useMutation({
+    mutationFn: (jobId: string) => api.calibrateJob(jobId),
+    onSuccess: (job) => router.push(`/jobs/${job.id}`),
+  });
+
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    createMutation.mutate();
+  };
+
+  const error = createMutation.error || calibrateMutation.error;
+
+  return (
+    <>
+      <PageHeader title="Create job" description="Create the backend job first, then run calibration to generate improved JD and criteria." />
+      <Panel>
+        <form onSubmit={onSubmit} className="grid gap-4 md:grid-cols-2">
+          <Field label="Title">
+            <input className={inputClass} value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} required />
+          </Field>
+          <Field label="Department">
+            <input className={inputClass} value={form.department} onChange={(event) => setForm({ ...form, department: event.target.value })} />
+          </Field>
+          <Field label="Seniority">
+            <input className={inputClass} value={form.seniority} onChange={(event) => setForm({ ...form, seniority: event.target.value })} />
+          </Field>
+          <Field label="Location">
+            <input className={inputClass} value={form.location} onChange={(event) => setForm({ ...form, location: event.target.value })} />
+          </Field>
+          <Field label="Employment type">
+            <input className={inputClass} value={form.employment_type} onChange={(event) => setForm({ ...form, employment_type: event.target.value })} />
+          </Field>
+          <Field label="Salary range">
+            <input className={inputClass} value={form.salary_range} onChange={(event) => setForm({ ...form, salary_range: event.target.value })} />
+          </Field>
+          <div className="md:col-span-2">
+            <Field label="Raw job description">
+              <textarea className={textareaClass} value={form.raw_jd} onChange={(event) => setForm({ ...form, raw_jd: event.target.value })} required />
+            </Field>
+          </div>
+          <div className="md:col-span-2 flex flex-wrap items-center gap-3">
+            <Button type="submit" disabled={createMutation.isPending || Boolean(createdJob)}>
+              Create job
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+            {createdJob ? <span className="text-sm font-medium text-success">Created job {createdJob.title}.</span> : null}
+          </div>
+        </form>
+      </Panel>
+
+      {createdJob ? (
+        <Panel className="mt-6">
+          <h2 className="text-lg font-semibold">Next step</h2>
+          <p className="mt-1 text-sm leading-6 text-muted">Run JD improvement and criteria generation through the backend calibration graph.</p>
+          <Button className="mt-4" type="button" disabled={calibrateMutation.isPending} onClick={() => calibrateMutation.mutate(createdJob.id)}>
+            <Sparkles className="h-4 w-4" />
+            {calibrateMutation.isPending ? "Calibrating..." : "Improve JD & Generate Criteria"}
+          </Button>
+        </Panel>
+      ) : null}
+
+      {error ? <div className="mt-6"><ErrorState message={error instanceof Error ? error.message : "Job action failed."} /></div> : null}
+    </>
+  );
+}

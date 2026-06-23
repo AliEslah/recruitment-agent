@@ -1,1 +1,0 @@
-"""Interview domain package."""

@@ -1,4 +1,4 @@
-FROM python:3.13-slim AS runtime
+FROM python:3.11-slim AS runtime
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -15,10 +15,12 @@ RUN apt-get update \
 ENV PATH="/root/.local/bin:${PATH}"
 
 COPY pyproject.toml uv.lock README.md ./
-COPY src ./src
+COPY alembic.ini ./
+COPY alembic ./alembic
+COPY backend ./backend
 
 RUN uv sync --frozen --no-dev
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "uv run uvicorn recruitment_agent.main:app --host ${API_HOST:-0.0.0.0} --port ${API_PORT:-8000}"]
+CMD ["sh", "-c", "uv run uvicorn app.main:app --host ${API_HOST:-0.0.0.0} --port ${API_PORT:-8000}"]

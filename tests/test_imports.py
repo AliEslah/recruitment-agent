@@ -2,9 +2,12 @@ from __future__ import annotations
 
 
 def test_core_modules_import() -> None:
-    import recruitment_agent.main
-    import recruitment_agent.core.config
-    import recruitment_agent.db.session
-    import recruitment_agent.agents.graph
+    import app.main
+    import app.core.config
+    import app.db.session
+    import app.agents.job_calibration.graph
+    import app.agents.candidate_processing.graph
+    import app.agents.interview.live_graph
 
-    assert recruitment_agent.main.app is not None
+    assert app.main.app is not None
+

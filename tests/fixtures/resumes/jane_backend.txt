@@ -1,0 +1,22 @@
+Jane Candidate
+Email: jane.qwen.e2e@example.com
+Phone: +1 555 0100
+Location: Remote
+Links: https://github.com/jane-backend https://linkedin.com/in/jane-backend
+
+Summary: Senior backend engineer with 8 years of Python experience building FastAPI services, PostgreSQL-backed platforms, and async processing systems.
+
+Experience:
+Principal Backend Engineer, Acme SaaS, 2021-2026
+- Built FastAPI microservices handling 20M API requests per month.
+- Designed PostgreSQL schemas, indexes, and migration workflows for multi-tenant data.
+- Improved p95 latency by 35% and added OpenTelemetry dashboards.
+- Led Docker-based local development and CI deployment hardening.
+
+Backend Engineer, DataWorks, 2018-2021
+- Built async Python workers and REST APIs.
+- Partnered with product and hiring managers to define reliable delivery milestones.
+
+Skills: Python, FastAPI, PostgreSQL, SQLAlchemy, Docker, async Python, observability, API security, technical communication.
+Education: B.S. Computer Science, State University, 2017.
+Certifications: AWS Certified Developer Associate.
