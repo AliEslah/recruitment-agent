@@ -5,7 +5,7 @@ Thanks for helping improve the AI Recruiting Decision Platform. This project is 
 ## Local Setup
 
 1. Install Python 3.11+, `uv`, Docker, Docker Compose, Node.js, and npm.
-2. Copy `.env.example` to `.env`.
+2. Review [docs/getting-started.md](docs/getting-started.md), then copy `.env.example` to `.env`.
 3. Start PostgreSQL and Mailpit:
 
 ```bash
@@ -33,7 +33,7 @@ npm install
 cp .env.example .env.local
 ```
 
-7. Start LM Studio locally with `qwen/qwen3-4b-2507` loaded before running AI flows or evals.
+7. Start LM Studio locally with `qwen/qwen3-4b-2507` loaded before running AI flows or evals. See [docs/local-llm.md](docs/local-llm.md).
 
 ## Branches And Pull Requests
 
@@ -50,6 +50,8 @@ cp .env.example .env.local
 - Do not change prompts unless the change is needed for quality, safety, schema correctness, or removing private data.
 
 ## Checks
+
+See [docs/development-workflow.md](docs/development-workflow.md) for the validation cadence.
 
 Backend:
 
@@ -116,4 +118,3 @@ Do not post real candidate data, raw tokens, OTPs, private resumes, or secrets.
 - Avoid protected-attribute reasoning and unsupported claims.
 - Keep local-only LM Studio behavior intact.
 - Run targeted or full real evals for prompt changes when possible.
-

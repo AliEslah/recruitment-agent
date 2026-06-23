@@ -1,5 +1,7 @@
 # Security Policy
 
+Implementation notes and pilot hardening guidance are in [docs/security.md](docs/security.md).
+
 ## Reporting Vulnerabilities
 
 Please report vulnerabilities privately to the maintainer before opening a public issue. If no private security channel is configured yet, open a minimal public issue saying that you need a security contact, without exploit details, secrets, candidate data, raw tokens, or OTPs.
@@ -30,4 +32,3 @@ Production use requires additional review for authentication, authorization, rat
 ## Local-Only LLM Boundary
 
 The backend uses the OpenAI-compatible client interface to call LM Studio locally. It must not send hiring data to OpenAI cloud, Anthropic, Gemini, or another external LLM provider as a fallback.
-

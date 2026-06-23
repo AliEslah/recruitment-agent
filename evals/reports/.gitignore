@@ -1,8 +1,5 @@
 *
 !.gitignore
-!20260623T100907Z_eval_report.json
-!20260623T100907Z_eval_report.md
-!20260623T104144Z_eval_report.json
-!20260623T104144Z_eval_report.md
-!20260623T111250Z_eval_report.json
-!20260623T111250Z_eval_report.md
+!README.md
+!final_42_of_42_eval_report.md
+!final_42_of_42_eval_report.json
