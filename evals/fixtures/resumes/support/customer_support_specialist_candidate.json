@@ -1,0 +1,20 @@
+{
+  "job_id": "customer_support_specialist",
+  "candidate_id": "support-candidate-001",
+  "name": "Casey Morgan",
+  "resume_text": "Casey Morgan\nEmail: casey.morgan.eval@example.com\nCustomer Support Associate, Beacon Helpdesk, 2022-2025\nHandled 45-60 email and chat tickets per day for a B2B SaaS helpdesk product. Used Zendesk macros, reproduced customer-reported bugs, attached screenshots and browser details for engineering, and followed up with customers after escalation. Maintained a 94 percent CSAT average over the last four quarters.\nCustomer Operations Intern, Beacon Helpdesk, 2021-2022\nUpdated help center articles and tagged recurring product questions.\nSkills: Zendesk, ticket triage, bug reproduction, customer communication, help center documentation.",
+  "expected_strengths": [
+    "Direct SaaS support ticket experience",
+    "Bug reproduction and escalation documentation",
+    "Clear customer follow-up evidence"
+  ],
+  "expected_risks": [
+    "Limited phone support evidence"
+  ],
+  "expected_missing_evidence": [
+    "Handling angry or high-stakes customers",
+    "Prioritization under backlog pressure"
+  ],
+  "expected_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Strong support match; interview should validate de-escalation and backlog prioritization."
+}

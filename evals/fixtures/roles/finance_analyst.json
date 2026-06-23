@@ -1,0 +1,33 @@
+{
+  "family": "finance",
+  "title": "Finance Analyst",
+  "department": "Finance",
+  "seniority": "Mid-level",
+  "location": "Hybrid",
+  "employment_type": "Full-time",
+  "raw_jd": "Support FP&A for a subscription business. Maintain budget models, analyze monthly variance, prepare management reporting, partner with department owners, and improve forecast inputs. The role requires Excel or Sheets modeling, accounting awareness, and concise business explanations.",
+  "expected_must_haves": [
+    "Budgeting or forecasting experience",
+    "Variance analysis",
+    "Spreadsheet modeling"
+  ],
+  "expected_nice_to_haves": [
+    "Subscription business metrics",
+    "Department owner partnership"
+  ],
+  "expected_soft_skills": [
+    "Analytical clarity",
+    "Stakeholder communication",
+    "Accuracy"
+  ],
+  "expected_disqualifiers": [
+    "No evidence of finance analysis",
+    "Cannot explain variance drivers"
+  ],
+  "expected_knockout_areas": [
+    "Forecasting",
+    "Variance analysis",
+    "Data accuracy"
+  ],
+  "scoring_notes": "Strong candidates connect model outputs to business drivers and explain assumptions clearly."
+}

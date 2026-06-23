@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from sqlalchemy import select
 
-from app.agents.final_decision.prompts import final_scorecard_prompt
+from app.agents.final_decision.prompts import FINAL_SCORECARD_PROMPT_VERSION, final_scorecard_prompt
 from app.agents.final_decision.state import FinalDecisionState
 from app.core.errors import ConflictError, ValidationAppError
 from app.db.models import CandidateScore, FinalScorecard, InterviewEvaluation
@@ -61,6 +61,7 @@ async def generate_final_scorecard(state: FinalDecisionState) -> dict:
             interview_evaluation=state["interview_evaluation"],
         ),
         FinalScorecardOutput,
+        prompt_version=FINAL_SCORECARD_PROMPT_VERSION,
     )
     return {"final_scorecard": output.model_dump(mode="json")}
 
@@ -91,4 +92,3 @@ async def persist_final_scorecard(state: FinalDecisionState) -> dict:
     )
     await state["session"].commit()
     return {}
-

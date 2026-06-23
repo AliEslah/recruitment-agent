@@ -1,0 +1,32 @@
+{
+  "candidate_id": "hr-candidate-001",
+  "job_id": "hr_generalist",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "How do you handle confidential employee relations intake?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I document only relevant facts, limit access to the HR partner, avoid discussing the case outside the process, and confirm the next step with the employee without promising an outcome."
+    },
+    {
+      "role": "AI",
+      "content": "Tell me about correcting HRIS data quality."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I ran monthly BambooHR audits for missing manager, location, and start-date fields, then sent owners a correction list and checked completion before payroll cutoff."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Confidential and careful communication",
+    "Reliable follow-through"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "No complex manager coaching example"
+  ],
+  "expected_interview_recommendation_band": "POSSIBLE_MATCH",
+  "human_notes": "Good process judgment; manager coaching should be validated in another round."
+}

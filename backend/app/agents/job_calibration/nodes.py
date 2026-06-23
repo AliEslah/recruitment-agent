@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from app.agents.job_calibration.prompts import jd_improvement_prompt, rubric_prompt
+from app.agents.job_calibration.prompts import JOB_CALIBRATION_PROMPT_VERSION, jd_improvement_prompt, rubric_prompt
 from app.agents.job_calibration.state import JobCalibrationState
 from app.agents.shared.utils import criteria_weight_total, normalize_criteria_weights
 from app.core.errors import ValidationAppError
@@ -33,6 +33,7 @@ async def improve_jd(state: JobCalibrationState) -> dict:
             seniority=state.get("seniority"),
         ),
         JDImprovementOutput,
+        prompt_version=JOB_CALIBRATION_PROMPT_VERSION,
     )
     return {"improved_jd": output.improved_jd, "missing_info": output.missing_info}
 
@@ -47,6 +48,7 @@ async def extract_hiring_rubric(state: JobCalibrationState) -> dict:
             employment_type=state.get("employment_type"),
         ),
         HiringRubricOutput,
+        prompt_version=JOB_CALIBRATION_PROMPT_VERSION,
     )
     return {
         "criteria": [item.model_dump(mode="json") for item in output.criteria],

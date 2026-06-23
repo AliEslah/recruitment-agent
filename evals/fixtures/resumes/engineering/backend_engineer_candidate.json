@@ -1,0 +1,20 @@
+{
+  "job_id": "backend_engineer",
+  "candidate_id": "engineering-candidate-001",
+  "name": "Sam Okafor",
+  "resume_text": "Sam Okafor\nEmail: sam.okafor.eval@example.com\nBackend Engineer, Prism Workflow, 2021-2025\nBuilt Python and FastAPI services for workflow approvals. Designed REST APIs, wrote PostgreSQL migrations, improved retry handling for background jobs, and added pytest coverage for billing webhooks. Partnered with product engineers on API contracts and production incident reviews.\nSoftware Engineer, Prism Workflow, 2019-2021\nMaintained internal admin tools and SQL reports.\nSkills: Python, FastAPI, PostgreSQL, REST APIs, pytest, reliability.",
+  "expected_strengths": [
+    "Backend API ownership",
+    "PostgreSQL migrations",
+    "Automated testing and reliability work"
+  ],
+  "expected_risks": [
+    "Distributed systems scale is not detailed"
+  ],
+  "expected_missing_evidence": [
+    "API design tradeoff example",
+    "Operational ownership depth"
+  ],
+  "expected_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Strong backend evidence for non-coding evaluation; interview should validate design reasoning."
+}

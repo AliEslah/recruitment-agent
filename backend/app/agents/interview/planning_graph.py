@@ -3,7 +3,7 @@ from __future__ import annotations
 from langgraph.graph import END, START, StateGraph
 from sqlalchemy import select
 
-from app.agents.interview.prompts import interview_plan_prompt
+from app.agents.interview.prompts import INTERVIEW_PLANNING_PROMPT_VERSION, interview_plan_prompt
 from app.agents.interview.state import InterviewPlanningState
 from app.core.errors import ConflictError, ValidationAppError
 from app.db.models import CandidateStatus, InterviewMode, InterviewSession
@@ -53,6 +53,7 @@ async def generate_interview_plan(state: InterviewPlanningState) -> dict:
             score=state["candidate_score"],
         ),
         InterviewPlanOutput,
+        prompt_version=INTERVIEW_PLANNING_PROMPT_VERSION,
     )
     return {"interview_plan": output.model_dump(mode="json")}
 
@@ -106,4 +107,3 @@ def build_interview_planning_graph():
 async def run_interview_planning_graph(state: InterviewPlanningState) -> InterviewPlanningState:
     graph = build_interview_planning_graph()
     return await graph.ainvoke(state)
-

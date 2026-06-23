@@ -1,0 +1,32 @@
+{
+  "candidate_id": "operations-candidate-001",
+  "job_id": "operations_manager",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "Describe a time you improved a process metric."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "Our pick path was too long. I reviewed zone-level data, moved high-volume SKUs closer to packing, trained shift leads on the new layout, and pick time dropped by about 12 percent."
+    },
+    {
+      "role": "AI",
+      "content": "How do you handle a safety or quality tradeoff when shipments are late?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I would not skip a required safety or quality check. I would split the backlog, escalate the service-level risk, and add labor to the constrained step if available."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Practical prioritization",
+    "Clear escalation mindset"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "Limited detail on performance management"
+  ],
+  "expected_interview_recommendation_band": "POSSIBLE_MATCH",
+  "human_notes": "Validates process improvement and safety judgment; people-management depth remains light."
+}

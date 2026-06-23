@@ -2,13 +2,21 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+
+
+def none_to_empty_list(value):
+    return [] if value is None else value
 
 
 class JDImprovementOutput(BaseModel):
     improved_jd: str
     missing_info: list[str] = Field(default_factory=list)
     suggested_clarifying_questions: list[str] = Field(default_factory=list)
+
+    _none_to_empty_lists = field_validator("missing_info", "suggested_clarifying_questions", mode="before")(
+        none_to_empty_list
+    )
 
 
 class HiringCriterion(BaseModel):
@@ -26,6 +34,15 @@ class HiringRubricOutput(BaseModel):
     soft_skills: list[str] = Field(default_factory=list)
     knockout_areas: list[str] = Field(default_factory=list)
 
+    _none_to_empty_lists = field_validator(
+        "must_haves",
+        "nice_to_haves",
+        "disqualifiers",
+        "soft_skills",
+        "knockout_areas",
+        mode="before",
+    )(none_to_empty_list)
+
 
 class WorkExperienceItem(BaseModel):
     company: str | None = None
@@ -34,6 +51,8 @@ class WorkExperienceItem(BaseModel):
     end_date: str | None = None
     responsibilities: list[str] = Field(default_factory=list)
     achievements: list[str] = Field(default_factory=list)
+
+    _none_to_empty_lists = field_validator("responsibilities", "achievements", mode="before")(none_to_empty_list)
 
 
 class EducationItem(BaseModel):
@@ -59,6 +78,17 @@ class ParsedResumeOutput(BaseModel):
     links: list[str] = Field(default_factory=list)
     summary: str | None = None
 
+    _none_to_empty_lists = field_validator(
+        "skills",
+        "work_experience",
+        "education",
+        "certifications",
+        "projects",
+        "achievements",
+        "links",
+        mode="before",
+    )(none_to_empty_list)
+
 
 class CandidateCriterionScore(BaseModel):
     criterion_name: str
@@ -66,6 +96,8 @@ class CandidateCriterionScore(BaseModel):
     weight: float
     evidence: list[str] = Field(default_factory=list)
     concerns: list[str] = Field(default_factory=list)
+
+    _none_to_empty_lists = field_validator("evidence", "concerns", mode="before")(none_to_empty_list)
 
 
 class CandidateScoreOutput(BaseModel):
@@ -76,6 +108,14 @@ class CandidateScoreOutput(BaseModel):
     risks: list[str] = Field(default_factory=list)
     recommendation: Literal["STRONG_MATCH", "POSSIBLE_MATCH", "WEAK_MATCH", "NEEDS_REVIEW"]
     confidence: float
+
+    _none_to_empty_lists = field_validator(
+        "criteria_scores",
+        "strengths",
+        "weaknesses",
+        "risks",
+        mode="before",
+    )(none_to_empty_list)
 
 
 QuestionType = Literal["FIXED", "RESUME_VALIDATION", "SOFT_SKILL", "KNOCKOUT", "DYNAMIC", "FOLLOW_UP"]
@@ -92,6 +132,8 @@ class InterviewQuestion(BaseModel):
 
 class InterviewPlanOutput(BaseModel):
     questions: list[InterviewQuestion]
+
+    _none_to_empty_lists = field_validator("questions", mode="before")(none_to_empty_list)
 
 
 class FollowUpDecisionOutput(BaseModel):
@@ -113,6 +155,14 @@ class InterviewEvaluationOutput(BaseModel):
     recommendation: str = Field(max_length=2000)
     confidence: float
 
+    _none_to_empty_lists = field_validator(
+        "strengths",
+        "weaknesses",
+        "red_flags",
+        "missing_evidence",
+        mode="before",
+    )(none_to_empty_list)
+
 
 class FinalScorecardOutput(BaseModel):
     overall_fit: float
@@ -125,3 +175,5 @@ class FinalScorecardOutput(BaseModel):
     missing_evidence: list[str] = Field(default_factory=list)
     recommendation: str = Field(max_length=2000)
     confidence: float
+
+    _none_to_empty_lists = field_validator("missing_evidence", mode="before")(none_to_empty_list)

@@ -108,6 +108,20 @@ The candidate page stores `client_session_nonce` and the current turn in `sessio
 
 ## Checks
 
+Fast frontend check:
+
+```bash
+npm run check:fast
+```
+
+Production-build check:
+
+```bash
+npm run check:frontend-build
+```
+
+Individual commands:
+
 ```bash
 npm run typecheck
 npm run lint

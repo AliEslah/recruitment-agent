@@ -2,6 +2,8 @@
 
 Backend-first MVP for an AI recruiting decision workflow. The app is FastAPI + PostgreSQL + LangGraph and uses LM Studio through its local OpenAI-compatible API. It does not call OpenAI cloud, Anthropic, Gemini, or any external LLM provider.
 
+No open-source license has been selected yet. Do not reuse this code until a license is added.
+
 ## What This MVP Does
 
 - Creates jobs from raw job descriptions.
@@ -25,6 +27,19 @@ Backend-first MVP for an AI recruiting decision workflow. The app is FastAPI + P
 - No job board integrations.
 - No voice or video interview implementation.
 - No mock LLM output, fake deterministic AI output, fake email provider, or cloud LLM fallback.
+
+## Architecture Overview
+
+- Backend: FastAPI application under `backend/app`, with SQLAlchemy models, Alembic migrations, JWT/RBAC dependencies, SMTP email, and LangGraph workflow modules.
+- LLM runtime: LM Studio local OpenAI-compatible API only. The `openai` SDK is used as a local protocol client for LM Studio, not as a cloud fallback.
+- Database: PostgreSQL through async SQLAlchemy and Alembic.
+- Frontend: Next.js App Router, TypeScript, Tailwind, and React Query under `frontend/`.
+- Local services: Docker Compose runs PostgreSQL, Mailpit, backend, and a one-shot migration tool. LM Studio runs separately on the host.
+- Evaluation: synthetic fixtures and report-only quality checks under `evals/`, using the same prompts and local LM Studio path as the product code.
+
+## Safety And Hiring Disclaimer
+
+This project is decision-support software for local MVP exploration. It is not a legal compliance engine, an automated hiring decision system, or a substitute for trained human review. Human reviewers own shortlist and final hiring decisions, and deployments must be reviewed for applicable employment, privacy, security, and accessibility requirements before any real candidate use.
 
 ## Requirements
 
@@ -106,7 +121,7 @@ Inside Docker, `localhost` points to the backend container, not your Mac/Linux/W
 
 ### Qwen Model Split
 
-Do not use `qwen/qwen3-4b-thinking-2507` as `RECRUITING_LLM_MODEL` for this backend. Its official model card says it supports only thinking mode, and the attached LM Studio logs show it can emit thousands of tokens in `reasoning_content` while leaving `message.content` empty.
+Do not use `qwen/qwen3-4b-thinking-2507` as `RECRUITING_LLM_MODEL` for this backend. Its official model card says it supports only thinking mode, and observed LM Studio responses can emit thousands of tokens in `reasoning_content` while leaving `message.content` empty.
 
 Use this split instead:
 
@@ -206,6 +221,33 @@ If LM Studio is down, `/health/llm` returns:
 ```
 
 `/health/llm` is logged as `health.llm` in `llm_call_logs` with `cache_hit=false`. It is not cached as a business LLM output. If LM Studio returns usage fields, the backend stores `input_tokens` and `output_tokens`; otherwise those fields remain `NULL`.
+
+## Evaluation Quality Evals
+
+Phase 3 evaluation fixtures live under `evals/`. They are synthetic source inputs and expected human review notes, not mock LLM outputs. Run fixture validation without LM Studio:
+
+```bash
+uv run python -m app.scripts.run_evals --dry-run-fixtures
+```
+
+Run real local-model evals:
+
+```bash
+export RECRUITING_LLM_MODEL=qwen/qwen3-4b-2507
+export LM_STUDIO_BASE_URL=http://localhost:1234/v1
+export LM_STUDIO_API_KEY=lm-studio
+export LM_STUDIO_TEMPERATURE=0.2
+export LM_STUDIO_TIMEOUT_SECONDS=180
+export LM_STUDIO_MAX_TOKENS=2048
+export LM_STUDIO_ENABLE_THINKING=false
+export RECRUITING_ALLOW_THINKING_MODEL_FOR_JSON=false
+uv run python -m app.scripts.check_lmstudio
+uv run python -m app.scripts.run_evals --all
+uv run python -m app.scripts.run_evals --role sales_account_executive
+uv run python -m app.scripts.run_evals --stage candidate_scoring
+```
+
+Reports are written to `evals/reports/`. If LM Studio is unavailable for an uncached output, the runner fails clearly and does not use fake AI output or a cloud fallback. See `docs/EVALUATION_QUALITY_PLAN.md`.
 
 ## Local Upload Storage
 
@@ -308,7 +350,7 @@ CANDIDATE_ID=$(curl -s -X POST http://localhost:8000/api/v1/jobs/$JOB_ID/candida
   -H "$AUTH_HEADER" \
   -F "name=Jane Candidate" \
   -F "email=jane@example.com" \
-  -F "file=@/absolute/path/to/resume.pdf" | jq -r .id)
+  -F "file=@tests/fixtures/resumes/jane_backend.txt" | jq -r .id)
 ```
 
 Process and score the candidate:
@@ -356,7 +398,7 @@ Copy the OTP from Mailpit and verify:
 ```bash
 curl -X POST http://localhost:8000/api/v1/interview-entry/$TOKEN/verify-otp \
   -H "Content-Type: application/json" \
-  -d '{"otp":"123456"}'
+  -d '{"otp":"<otp-from-mailpit>"}'
 ```
 
 Start the live chat interview and save the client-session nonce:
@@ -423,33 +465,96 @@ curl http://localhost:8000/api/v1/admin/communications -H "$ADMIN_AUTH_HEADER"
 
 ## Tests And Lint
 
+Use the validation cadence in [Development Workflow](docs/DEVELOPMENT_WORKFLOW.md). Do not run full verification after every small task.
+
+Small backend-only task:
+
+```bash
+uv run python scripts/check_backend_fast.py
+```
+
+Small frontend-only task:
+
+```bash
+cd frontend
+npm run check:fast
+```
+
+Batch of 3-4 tasks or pre-commit checkpoint:
+
+```bash
+uv run python scripts/check_checkpoint.py
+```
+
+End of phase or major merge:
+
+```bash
+uv run python scripts/check_full.py
+```
+
+Only after AI prompt/schema/scoring/eval-helper changes:
+
+```bash
+uv run python scripts/check_eval_targeted.py --stage candidate_scoring
+```
+
+Only before declaring an AI quality milestone:
+
+```bash
+uv run python scripts/check_eval.py
+```
+
+Individual checks remain available:
+
 ```bash
 uv run pytest -q
 uv run pytest -q -m unit
-uv run pytest -q -m db
-uv run pytest -q -m mailpit
+RUN_DB_TESTS=true uv run pytest -q -m db
+RUN_MAILPIT_TESTS=true uv run pytest -q -m mailpit
 RUN_LMSTUDIO_TESTS=true uv run pytest -q -m lmstudio
-uv run pytest -q -m e2e
+RUN_E2E=true uv run pytest -q -m e2e
+RUN_SLOW_TESTS=true uv run pytest -q -m slow
 uv run ruff check backend/app tests
 
 cd frontend
+npm run check:fast
 npm run typecheck
 npm run lint
 npm run test
 npm run build
 ```
 
-Pytest markers separate `unit`, `db`, `mailpit`, `lmstudio`, and `e2e` tests. Unit tests must not require external services. LM Studio integration tests should only run when LM Studio is available and `RUN_LMSTUDIO_TESTS=true`; they must make real local model calls and should fail clearly otherwise.
+Pytest markers separate `unit`, `db`, `mailpit`, `lmstudio`, `e2e`, and `slow` tests, and unknown markers fail collection. Unit tests must not require external services. External and slow tests are skipped unless their explicit `RUN_*` flag is set. LM Studio integration tests must make real local model calls and should fail clearly when enabled but unavailable.
 
-## Phase 1B Reliability Notes
+## Known Limitations
 
-- Added explicit migration/index revision `20260622_0004`, chat-only interview-mode revision `20260622_0005`, and a Compose `migrate` service.
-- Added indexes for candidate/job/session/log/LLM query paths.
-- Bound active interview answers and completion to a hashed client-session nonce.
-- Made interview evaluation and final scorecard generation idempotent by default, with audited `force=true` reruns.
-- Centralized primary job, candidate, and interview status transitions.
-- Logged LM Studio usage when returned, leaving token fields `NULL` when absent and costs unset.
-- Deleted the unused `src/recruitment_agent` scaffold instead of retaining an archive.
-- Removed the old `LM_STUDIO_MODEL` fallback, unused reasoning-model setting, and unimplemented `VOICE`/`VIDEO` interview modes.
-- Moved the resume fixture to `tests/fixtures/resumes/jane_backend.txt` and ignored runtime uploads.
-- Kept interview/final narrative recommendation columns as `Text` and constrained LLM schema recommendations to 2000 characters.
+- The MVP is local-first and has not been hardened for production hosting.
+- The initial Alembic revision still delegates table creation to `Base.metadata.create_all()`.
+- The eval framework uses synthetic fixtures and report-only heuristics; it is not a legal or statistical validation suite.
+- Candidate interview recovery depends on browser session storage during an active chat.
+- Playwright E2E is not configured yet.
+- Voice/video interviews, coding assessments, ATS sync, LinkedIn scraping, and job-board integrations are intentionally out of scope.
+
+## Roadmap
+
+- Convert the initial migration to explicit Alembic operations.
+- Add CI-backed PostgreSQL migration tests and broader integration coverage.
+- Add rate limiting and retention policies for interview-entry, communication, LLM, upload, and eval data.
+- Add explicit pilot runbooks for backup/restore, secret rotation, migration rollback, and incident handling.
+- Tune eval score-band calibration and broaden synthetic fixture coverage.
+- Add full browser E2E only when the local stack can run reliably in CI or a dedicated developer script.
+
+## Project Docs
+
+- [Frontend README](frontend/README.md)
+- [Development workflow](docs/DEVELOPMENT_WORKFLOW.md)
+- [LM Studio settings](docs/LM_STUDIO_SETTINGS.md)
+- [Evaluation quality plan](docs/EVALUATION_QUALITY_PLAN.md)
+- [Eval triage report](docs/EVAL_TRIAGE_REPORT.md)
+- [Next steps](docs/NEXT_STEPS.md)
+- [Open-source readiness](docs/OPEN_SOURCE_READINESS.md)
+- [License decision](docs/LICENSE_DECISION.md)
+
+## License Status
+
+No open-source license has been selected yet. The maintainer must add a `LICENSE` file before publishing if they want others to use, modify, or redistribute the code.

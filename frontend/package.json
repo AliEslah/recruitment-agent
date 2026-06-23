@@ -5,6 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "check:checkpoint": "cd .. && uv run python scripts/check_checkpoint.py",
+    "check:fast": "npm run typecheck && npm run lint && npm run test",
+    "check:frontend-build": "npm run check:fast && npm run build",
+    "check:frontend-fast": "npm run check:fast",
+    "check:full": "cd .. && uv run python scripts/check_full.py",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"

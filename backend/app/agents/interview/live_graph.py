@@ -5,7 +5,7 @@ from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
 
-from app.agents.interview.prompts import follow_up_prompt
+from app.agents.interview.prompts import INTERVIEW_EVALUATION_PROMPT_VERSION, follow_up_prompt
 from app.agents.interview.state import LiveInterviewState
 from app.agents.shared.utils import append_security_event, is_interview_expired
 from app.core.config import get_settings
@@ -98,6 +98,7 @@ async def maybe_generate_follow_up(state: LiveInterviewState) -> dict:
         "live_interview.maybe_generate_follow_up",
         follow_up_prompt(question=question, answer=state.get("last_candidate_answer") or ""),
         FollowUpDecisionOutput,
+        prompt_version=INTERVIEW_EVALUATION_PROMPT_VERSION,
     )
     if not output.should_ask_follow_up or output.next_action != "ASK_FOLLOW_UP" or not output.follow_up_question:
         return {}

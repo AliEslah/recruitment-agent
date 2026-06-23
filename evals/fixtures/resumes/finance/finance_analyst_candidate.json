@@ -1,0 +1,20 @@
+{
+  "job_id": "finance_analyst",
+  "candidate_id": "finance-candidate-001",
+  "name": "Avery Brooks",
+  "resume_text": "Avery Brooks\nEmail: avery.brooks.eval@example.com\nFinancial Analyst, Cedar Metrics, 2021-2025\nMaintained department budget trackers in Excel, prepared monthly variance commentary for software spend and headcount costs, and refreshed forecast inputs for quarterly planning. Partnered with engineering and marketing budget owners to explain drivers behind actuals versus plan. Built a subscription revenue tab using ARR, churn, and expansion assumptions.\nAccounting Assistant, Cedar Metrics, 2019-2021\nReconciled vendor invoices and supported month-end close schedules.\nSkills: Excel modeling, variance analysis, forecasting, ARR metrics, stakeholder reporting.",
+  "expected_strengths": [
+    "Budget and forecast experience",
+    "Variance analysis",
+    "Subscription revenue assumptions"
+  ],
+  "expected_risks": [
+    "Limited evidence of executive presentation"
+  ],
+  "expected_missing_evidence": [
+    "Model quality control process",
+    "Handling ambiguous forecast assumptions"
+  ],
+  "expected_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Strong finance analyst match; interview should validate model rigor and business explanation."
+}

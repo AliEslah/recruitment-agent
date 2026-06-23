@@ -64,9 +64,15 @@ SCHEMA_INSTRUCTIONS: dict[str, str] = {
 }
 
 
-def normalized_input_hash(task: str, prompt: str, schema_name: str, model: str = "") -> str:
+def normalized_input_hash(
+    task: str,
+    prompt: str,
+    schema_name: str,
+    model: str = "",
+    prompt_version: str | None = None,
+) -> str:
     normalized = json.dumps(
-        {"task": task, "prompt": prompt, "schema": schema_name, "model": model},
+        {"task": task, "prompt": prompt, "schema": schema_name, "model": model, "prompt_version": prompt_version},
         sort_keys=True,
         separators=(",", ":"),
     )
@@ -102,11 +108,33 @@ class LLMJsonService:
         self.settings = get_settings()
         self.client = client or LMStudioClient(self.settings)
 
-    async def generate(self, task: str, prompt: str, response_schema: type[T]) -> T:
-        input_hash = normalized_input_hash(task, prompt, response_schema.__name__, self.settings.structured_llm_model)
+    async def generate(
+        self,
+        task: str,
+        prompt: str,
+        response_schema: type[T],
+        prompt_version: str | None = None,
+    ) -> T:
+        input_hash = normalized_input_hash(
+            task,
+            prompt,
+            response_schema.__name__,
+            self.settings.structured_llm_model,
+            prompt_version,
+        )
         cached = await self.session.scalar(select(LlmCache).where(LlmCache.input_hash == input_hash))
         if cached:
-            await self._log(task, input_hash, 0, True, "success", None, None)
+            await self._log(
+                task,
+                input_hash,
+                0,
+                True,
+                "success",
+                None,
+                None,
+                metadata={"prompt_version": prompt_version},
+            )
+            await self.session.commit()
             return response_schema.model_validate(cached.output_json)
 
         full_prompt = self._json_prompt(prompt, response_schema)
@@ -144,12 +172,24 @@ class LLMJsonService:
                     raw_path,
                     input_tokens,
                     output_tokens,
+                    metadata={"prompt_version": prompt_version},
                 )
                 await self.session.commit()
                 raise
         except Exception as exc:
             latency_ms = int((time.perf_counter() - started) * 1000)
-            await self._log(task, input_hash, latency_ms, False, "error", str(exc), None, input_tokens, output_tokens)
+            await self._log(
+                task,
+                input_hash,
+                latency_ms,
+                False,
+                "error",
+                str(exc),
+                None,
+                input_tokens,
+                output_tokens,
+                metadata={"prompt_version": prompt_version},
+            )
             await self.session.commit()
             raise
 
@@ -162,7 +202,18 @@ class LLMJsonService:
                 output_json=parsed.model_dump(mode="json"),
             )
         )
-        await self._log(task, input_hash, latency_ms, False, "success", None, None, input_tokens, output_tokens)
+        await self._log(
+            task,
+            input_hash,
+            latency_ms,
+            False,
+            "success",
+            None,
+            None,
+            input_tokens,
+            output_tokens,
+            metadata={"prompt_version": prompt_version},
+        )
         await self.session.commit()
         return parsed
 
@@ -187,6 +238,7 @@ class LLMJsonService:
         raw_response_path: str | None,
         input_tokens: int | None = None,
         output_tokens: int | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> None:
         self.session.add(
             LlmCallLog(
@@ -200,6 +252,12 @@ class LLMJsonService:
                 status=status,
                 error=error,
                 raw_response_path=raw_response_path,
+                metadata_json={
+                    key: value
+                    for key, value in (metadata or {}).items()
+                    if value is not None
+                }
+                or None,
             )
         )
 

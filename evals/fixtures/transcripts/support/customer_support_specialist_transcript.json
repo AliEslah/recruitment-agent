@@ -1,0 +1,32 @@
+{
+  "candidate_id": "support-candidate-001",
+  "job_id": "customer_support_specialist",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "Tell me how you handle a customer who is frustrated about a recurring issue."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I acknowledge the impact first, confirm the exact reproduction steps, and explain what I can do now. If engineering owns the fix, I send a clear escalation with screenshots and keep the customer updated every business day."
+    },
+    {
+      "role": "AI",
+      "content": "How do you decide when to escalate?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I escalate when I can reproduce a product issue, when account impact is high, or when the workaround is risky. I include ticket history, environment details, and what I already tried."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Empathetic communication",
+    "Structured follow-through"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "No backlog prioritization example"
+  ],
+  "expected_interview_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Strong support evidence; prioritization under load is still missing."
+}

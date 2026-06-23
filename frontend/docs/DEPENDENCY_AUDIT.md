@@ -1,6 +1,6 @@
 # Dependency Audit
 
-Date: 2026-06-22
+Date: 2026-06-23
 
 Command:
 
@@ -31,6 +31,13 @@ npm view vite@7 version dependencies.esbuild --json
 npm view vitest@3 version dependencies.vite --json
 npm view next version dependencies.postcss --json
 ```
+
+Latest reviewed output on 2026-06-23:
+
+- `npm audit --json`: 1 low, 2 moderate, 0 high, 0 critical.
+- `npm ls esbuild postcss next --all`: `next@15.5.19` carries nested `postcss@8.4.31`; project-level PostCSS is `8.5.15`; `vitest@3.2.6 -> vite@7.3.5 -> esbuild@0.27.7`.
+- `npm audit fix --dry-run --json`: does not produce a safe dependency change; the Next/PostCSS fix path remains a semver-major downgrade to `next@9.3.3`.
+- `npm view next version dependencies.postcss --json`: latest `next@16.2.9` still declares `postcss 8.4.31`.
 
 ## Decision
 

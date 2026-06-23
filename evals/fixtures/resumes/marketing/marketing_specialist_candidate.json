@@ -1,0 +1,20 @@
+{
+  "job_id": "marketing_specialist",
+  "candidate_id": "marketing-candidate-001",
+  "name": "Morgan Patel",
+  "resume_text": "Morgan Patel\nEmail: morgan.patel.eval@example.com\nMarketing Coordinator, Atlas CRM, 2022-2025\nBuilt lifecycle email campaigns in HubSpot, coordinated monthly webinars with product marketing, maintained a campaign calendar, and reported registration-to-opportunity conversion in Sheets. Wrote subject line variants and worked with sales development on follow-up lists. Helped improve webinar attendance rate from 41 percent to 52 percent over two quarters.\nSkills: HubSpot, email campaigns, webinar coordination, campaign reporting, copywriting.",
+  "expected_strengths": [
+    "Hands-on campaign execution",
+    "Marketing automation experience",
+    "Basic conversion reporting"
+  ],
+  "expected_risks": [
+    "Limited evidence of independent campaign strategy"
+  ],
+  "expected_missing_evidence": [
+    "Budget management",
+    "A/B test design"
+  ],
+  "expected_recommendation_band": "POSSIBLE_MATCH",
+  "human_notes": "Good specialist candidate; interview should validate metric interpretation and copy decisions."
+}

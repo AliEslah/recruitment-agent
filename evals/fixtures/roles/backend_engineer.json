@@ -1,0 +1,33 @@
+{
+  "family": "engineering",
+  "title": "Backend Engineer",
+  "department": "Engineering",
+  "seniority": "Mid-level",
+  "location": "Remote",
+  "employment_type": "Full-time",
+  "raw_jd": "Build and maintain backend services for a workflow platform. Design APIs, work with PostgreSQL, improve reliability, write tests, and collaborate with product engineers. This evaluation fixture is non-coding and focuses on resume and interview evidence rather than live coding.",
+  "expected_must_haves": [
+    "Backend API development",
+    "PostgreSQL or relational database experience",
+    "Automated testing"
+  ],
+  "expected_nice_to_haves": [
+    "FastAPI or Python service experience",
+    "Reliability improvements"
+  ],
+  "expected_soft_skills": [
+    "Technical communication",
+    "Ownership",
+    "Pragmatism"
+  ],
+  "expected_disqualifiers": [
+    "No backend service experience",
+    "No evidence of testing or production ownership"
+  ],
+  "expected_knockout_areas": [
+    "API design",
+    "Database work",
+    "Testing discipline"
+  ],
+  "scoring_notes": "Strong candidates show production backend ownership, test habits, and clear tradeoff communication."
+}

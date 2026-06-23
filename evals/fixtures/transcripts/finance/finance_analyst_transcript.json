@@ -1,0 +1,32 @@
+{
+  "candidate_id": "finance-candidate-001",
+  "job_id": "finance_analyst",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "Explain a variance analysis you prepared."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "Software spend was 8 percent over plan. I separated renewal timing from seat growth, found one duplicate vendor provision, and explained that most of the variance was timing rather than run-rate risk."
+    },
+    {
+      "role": "AI",
+      "content": "How do you avoid errors in a forecast model?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I separate assumptions from formulas, lock prior-period actuals, reconcile totals to the accounting export, and add checks for headcount and ARR rollforward tabs."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Concise analytical explanation",
+    "Accuracy-oriented"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "Limited executive presentation example"
+  ],
+  "expected_interview_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Strong evidence for variance analysis and model controls."
+}

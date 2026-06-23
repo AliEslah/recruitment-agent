@@ -1,0 +1,15 @@
+{
+  "role_id": "customer_support_specialist",
+  "expected_role_signals": [
+    "ticket triage",
+    "Zendesk or equivalent support tooling",
+    "bug reproduction",
+    "empathetic customer communication"
+  ],
+  "expected_candidate_band": "STRONG_MATCH",
+  "expected_interview_band": "STRONG_MATCH",
+  "known_missing_validation": [
+    "backlog prioritization",
+    "phone support"
+  ]
+}

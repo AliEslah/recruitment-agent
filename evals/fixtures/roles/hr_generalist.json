@@ -1,0 +1,33 @@
+{
+  "family": "hr",
+  "title": "HR Generalist",
+  "department": "People",
+  "seniority": "Mid-level",
+  "location": "Remote US",
+  "employment_type": "Full-time",
+  "raw_jd": "Support core HR operations for a 300-person company. Manage onboarding, employee relations intake, policy documentation, HRIS data quality, benefits coordination, and manager guidance. The role requires confidentiality, structured follow-through, and practical knowledge of HR processes.",
+  "expected_must_haves": [
+    "HR operations or generalist experience",
+    "Employee relations intake or manager support",
+    "HRIS data management"
+  ],
+  "expected_nice_to_haves": [
+    "Benefits coordination",
+    "Policy documentation"
+  ],
+  "expected_soft_skills": [
+    "Confidentiality",
+    "Sound judgment",
+    "Service orientation"
+  ],
+  "expected_disqualifiers": [
+    "No evidence of HR process ownership",
+    "Casual handling of confidential information"
+  ],
+  "expected_knockout_areas": [
+    "Confidentiality",
+    "Employee relations judgment",
+    "HRIS accuracy"
+  ],
+  "scoring_notes": "Strong candidates handle sensitive intake carefully and maintain reliable HR process documentation."
+}

@@ -1,0 +1,32 @@
+{
+  "candidate_id": "marketing-candidate-001",
+  "job_id": "marketing_specialist",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "Walk me through a campaign you executed and how you measured it."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "For a product webinar, I built HubSpot emails, coordinated speaker prep, and tracked registration-to-attendance and opportunity conversion in Sheets. Attendance improved after we changed the reminder timing."
+    },
+    {
+      "role": "AI",
+      "content": "How do you evaluate whether copy worked?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I compare open and click rates, but I also look at whether the audience took the intended next action. I prefer testing one message variable at a time when volume allows."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Clear cross-functional execution",
+    "Detail-oriented measurement"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "No budget or channel-mix ownership"
+  ],
+  "expected_interview_recommendation_band": "POSSIBLE_MATCH",
+  "human_notes": "Supports campaign execution and basic metric reasoning."
+}

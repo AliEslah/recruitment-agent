@@ -1,0 +1,15 @@
+{
+  "role_id": "marketing_specialist",
+  "expected_role_signals": [
+    "campaign execution",
+    "HubSpot or marketing automation",
+    "webinar coordination",
+    "conversion reporting"
+  ],
+  "expected_candidate_band": "POSSIBLE_MATCH",
+  "expected_interview_band": "POSSIBLE_MATCH",
+  "known_missing_validation": [
+    "budget management",
+    "channel strategy"
+  ]
+}

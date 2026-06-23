@@ -1,0 +1,15 @@
+{
+  "role_id": "operations_manager",
+  "expected_role_signals": [
+    "people leadership",
+    "service-level metric ownership",
+    "continuous improvement",
+    "safety and quality judgment"
+  ],
+  "expected_candidate_band": "POSSIBLE_MATCH",
+  "expected_interview_band": "POSSIBLE_MATCH",
+  "known_missing_validation": [
+    "performance management",
+    "budget ownership"
+  ]
+}

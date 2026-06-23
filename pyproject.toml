@@ -45,12 +45,14 @@ packages = ["backend/app"]
 pythonpath = ["backend"]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+addopts = "--strict-markers"
 markers = [
     "unit: tests that do not require external services",
     "db: tests that require PostgreSQL",
     "mailpit: tests that require Mailpit",
     "lmstudio: tests that require LM Studio local server",
     "e2e: end-to-end tests that require the local stack",
+    "slow: long-running tests that should not run in normal fast checks",
 ]
 
 [tool.ruff]

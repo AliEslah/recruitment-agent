@@ -1,0 +1,15 @@
+{
+  "role_id": "hr_generalist",
+  "expected_role_signals": [
+    "HR operations",
+    "HRIS accuracy",
+    "employee relations intake",
+    "confidentiality"
+  ],
+  "expected_candidate_band": "POSSIBLE_MATCH",
+  "expected_interview_band": "POSSIBLE_MATCH",
+  "known_missing_validation": [
+    "complex employee relations judgment",
+    "manager coaching"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "family": "support",
+  "title": "Customer Support Specialist",
+  "department": "Customer Experience",
+  "seniority": "Associate",
+  "location": "Hybrid",
+  "employment_type": "Full-time",
+  "raw_jd": "Provide front-line support for a B2B helpdesk product. Triage tickets, answer chat and email inquiries, document reproducible bugs, maintain accurate macros, and escalate complex technical issues with clear context. Success requires calm written communication, customer empathy, and reliable follow-through.",
+  "expected_must_haves": [
+    "Customer support ticket handling",
+    "Clear written communication",
+    "Bug reproduction or escalation documentation"
+  ],
+  "expected_nice_to_haves": [
+    "Experience with Zendesk or similar tooling",
+    "SaaS support experience"
+  ],
+  "expected_soft_skills": [
+    "Empathy",
+    "Patience",
+    "Ownership"
+  ],
+  "expected_disqualifiers": [
+    "No evidence of customer-facing support experience",
+    "Dismissive communication style"
+  ],
+  "expected_knockout_areas": [
+    "Ticket triage",
+    "Escalation judgment",
+    "Customer communication"
+  ],
+  "scoring_notes": "Strong candidates balance empathy with structured troubleshooting and know when to escalate."
+}

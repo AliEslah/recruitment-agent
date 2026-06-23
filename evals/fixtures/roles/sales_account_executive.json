@@ -1,0 +1,33 @@
+{
+  "family": "sales",
+  "title": "Sales Account Executive",
+  "department": "Revenue",
+  "seniority": "Mid-level",
+  "location": "Remote US",
+  "employment_type": "Full-time",
+  "raw_jd": "Own full-cycle B2B sales for a workflow automation SaaS product. Prospect target accounts, run discovery, build business cases, manage CRM hygiene, negotiate commercial terms, and close new annual contracts. Partner with customer success for handoff and expansion signals. Experience selling to operations or finance leaders is preferred.",
+  "expected_must_haves": [
+    "Full-cycle B2B SaaS sales experience",
+    "Pipeline generation and discovery skills",
+    "CRM discipline"
+  ],
+  "expected_nice_to_haves": [
+    "Experience selling workflow automation",
+    "Experience with operations or finance buyers"
+  ],
+  "expected_soft_skills": [
+    "Consultative communication",
+    "Commercial judgment",
+    "Resilience"
+  ],
+  "expected_disqualifiers": [
+    "No evidence of quota-carrying B2B sales experience",
+    "Unable to describe ethical sales practices"
+  ],
+  "expected_knockout_areas": [
+    "Quota ownership",
+    "Discovery quality",
+    "Forecast reliability"
+  ],
+  "scoring_notes": "Strong candidates show quota ownership, sourced pipeline, disciplined CRM usage, and evidence of consultative selling."
+}

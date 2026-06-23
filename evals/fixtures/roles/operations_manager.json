@@ -1,0 +1,33 @@
+{
+  "family": "operations",
+  "title": "Operations Manager",
+  "department": "Operations",
+  "seniority": "Manager",
+  "location": "On-site",
+  "employment_type": "Full-time",
+  "raw_jd": "Lead daily operations for a regional fulfillment center. Manage shift leads, improve process reliability, track service-level metrics, coordinate vendor issues, and drive continuous improvement projects. The role requires analytical problem solving, people management, and practical execution under time pressure.",
+  "expected_must_haves": [
+    "People management in an operations environment",
+    "Service-level or process metric ownership",
+    "Continuous improvement experience"
+  ],
+  "expected_nice_to_haves": [
+    "Fulfillment or logistics experience",
+    "Vendor coordination"
+  ],
+  "expected_soft_skills": [
+    "Prioritization",
+    "Team leadership",
+    "Clear escalation"
+  ],
+  "expected_disqualifiers": [
+    "No evidence of operations leadership",
+    "Cannot describe safety or quality tradeoffs"
+  ],
+  "expected_knockout_areas": [
+    "People leadership",
+    "Operational metrics",
+    "Incident response"
+  ],
+  "scoring_notes": "Strong candidates show measurable operational improvements and balanced people/process decisions."
+}

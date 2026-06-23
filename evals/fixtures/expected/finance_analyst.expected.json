@@ -1,0 +1,14 @@
+{
+  "role_id": "finance_analyst",
+  "expected_role_signals": [
+    "budget forecasting",
+    "variance analysis",
+    "Excel modeling",
+    "subscription metrics"
+  ],
+  "expected_candidate_band": "STRONG_MATCH",
+  "expected_interview_band": "STRONG_MATCH",
+  "known_missing_validation": [
+    "executive presentation"
+  ]
+}

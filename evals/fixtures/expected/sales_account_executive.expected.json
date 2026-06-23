@@ -1,0 +1,15 @@
+{
+  "role_id": "sales_account_executive",
+  "expected_role_signals": [
+    "full-cycle B2B SaaS sales",
+    "pipeline generation",
+    "Salesforce discipline",
+    "forecast reliability"
+  ],
+  "expected_candidate_band": "STRONG_MATCH",
+  "expected_interview_band": "STRONG_MATCH",
+  "known_missing_validation": [
+    "negotiation example",
+    "enterprise deal complexity"
+  ]
+}

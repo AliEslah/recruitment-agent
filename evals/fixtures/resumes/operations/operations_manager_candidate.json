@@ -1,0 +1,21 @@
+{
+  "job_id": "operations_manager",
+  "candidate_id": "operations-candidate-001",
+  "name": "Taylor Rivera",
+  "resume_text": "Taylor Rivera\nEmail: taylor.rivera.eval@example.com\nShift Operations Lead, Harbor Fulfillment, 2020-2025\nManaged four shift leads and 38 associates across receiving and outbound packing. Tracked on-time ship rate, pick accuracy, and backlog aging. Led a slotting change that reduced average pick path time by 12 percent. Coordinated vendor issue logs for damaged inbound pallets and ran daily standups during peak season.\nOperations Coordinator, Harbor Fulfillment, 2018-2020\nBuilt weekly service-level reports in Excel and documented standard work updates.\nSkills: team leadership, fulfillment operations, Excel reporting, continuous improvement, vendor coordination.",
+  "expected_strengths": [
+    "People management in fulfillment operations",
+    "Metric ownership",
+    "Measured process improvement"
+  ],
+  "expected_risks": [
+    "Safety incident handling is not described",
+    "Budget ownership is not shown"
+  ],
+  "expected_missing_evidence": [
+    "Safety and quality tradeoff example",
+    "Performance management example"
+  ],
+  "expected_recommendation_band": "POSSIBLE_MATCH",
+  "human_notes": "Good operations fit; needs interview validation on safety, quality, and people decisions."
+}

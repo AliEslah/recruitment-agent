@@ -1,0 +1,32 @@
+{
+  "candidate_id": "sales-candidate-001",
+  "job_id": "sales_account_executive",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "Describe a discovery call where you changed your sales approach based on what you learned."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "A finance team initially asked for automation pricing, but discovery showed their close process was the pain. I mapped the delay, brought in a workflow example, and reframed the business case around five days saved each month."
+    },
+    {
+      "role": "AI",
+      "content": "How do you keep forecasts reliable?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I update Salesforce after each buyer interaction, separate verbal interest from confirmed next steps, and flag legal or security risk early instead of keeping optimistic close dates."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Consultative and structured communication",
+    "Shows commercial judgment"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "No detailed negotiation example"
+  ],
+  "expected_interview_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Transcript supports discovery and forecasting; negotiation remains missing."
+}

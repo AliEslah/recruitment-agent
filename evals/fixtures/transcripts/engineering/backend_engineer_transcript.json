@@ -1,0 +1,32 @@
+{
+  "candidate_id": "engineering-candidate-001",
+  "job_id": "backend_engineer",
+  "messages": [
+    {
+      "role": "AI",
+      "content": "Describe an API design tradeoff you made."
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "For approval workflows, we kept the public REST API coarse-grained so product teams could create an approval request in one call, while internal services used smaller events for audit and retry handling."
+    },
+    {
+      "role": "AI",
+      "content": "How did you improve backend reliability?"
+    },
+    {
+      "role": "CANDIDATE",
+      "content": "I added idempotency keys to billing webhook processing, wrote pytest coverage around duplicate delivery, and added retry logging so support could see whether a failure was transient."
+    }
+  ],
+  "expected_soft_skill_notes": [
+    "Clear technical communication",
+    "Pragmatic tradeoff reasoning"
+  ],
+  "expected_red_flags": [],
+  "expected_missing_evidence": [
+    "No deep database tuning example"
+  ],
+  "expected_interview_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Validates API design and reliability ownership in a non-coding interview."
+}

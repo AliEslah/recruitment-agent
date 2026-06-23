@@ -1,0 +1,14 @@
+{
+  "role_id": "backend_engineer",
+  "expected_role_signals": [
+    "backend API development",
+    "PostgreSQL",
+    "automated testing",
+    "reliability ownership"
+  ],
+  "expected_candidate_band": "STRONG_MATCH",
+  "expected_interview_band": "STRONG_MATCH",
+  "known_missing_validation": [
+    "database tuning"
+  ]
+}

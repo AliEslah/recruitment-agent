@@ -1,0 +1,21 @@
+{
+  "job_id": "sales_account_executive",
+  "candidate_id": "sales-candidate-001",
+  "name": "Jordan Lee",
+  "resume_text": "Jordan Lee\nEmail: jordan.lee.eval@example.com\nAccount Executive, Northstar SaaS, 2021-2025\nOwned full-cycle sales for workflow software sold to finance and operations teams. Carried a $900K annual quota and finished 2024 at 106 percent. Built outbound sequences, ran discovery calls, maintained Salesforce opportunity notes, negotiated annual contracts, and partnered with customer success on handoff. Earlier role: Sales Development Representative, Northstar SaaS, 2019-2021, sourced qualified pipeline through targeted account research.\nSkills: B2B SaaS sales, discovery, Salesforce, negotiation, pipeline generation.",
+  "expected_strengths": [
+    "Full-cycle B2B SaaS quota ownership",
+    "Salesforce and pipeline discipline",
+    "Relevant buyer experience"
+  ],
+  "expected_risks": [
+    "Limited evidence of enterprise deal complexity",
+    "Customer expansion ownership is not detailed"
+  ],
+  "expected_missing_evidence": [
+    "Forecast accuracy examples",
+    "Ethical sales scenario"
+  ],
+  "expected_recommendation_band": "STRONG_MATCH",
+  "human_notes": "Likely strong sales match if interview validates discovery quality and forecasting habits."
+}

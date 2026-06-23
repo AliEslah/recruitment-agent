@@ -1,0 +1,33 @@
+{
+  "family": "marketing",
+  "title": "Marketing Specialist",
+  "department": "Marketing",
+  "seniority": "Associate",
+  "location": "Remote",
+  "employment_type": "Full-time",
+  "raw_jd": "Execute lifecycle and demand generation campaigns for a B2B software company. Build email campaigns, coordinate webinars, maintain campaign calendars, report on conversion metrics, and collaborate with sales on follow-up. Experience with marketing automation and clear copywriting is important.",
+  "expected_must_haves": [
+    "Campaign execution experience",
+    "Marketing automation or email platform experience",
+    "Basic performance reporting"
+  ],
+  "expected_nice_to_haves": [
+    "B2B software marketing",
+    "Webinar coordination"
+  ],
+  "expected_soft_skills": [
+    "Attention to detail",
+    "Cross-functional communication",
+    "Adaptability"
+  ],
+  "expected_disqualifiers": [
+    "No evidence of hands-on campaign execution",
+    "Cannot interpret basic campaign metrics"
+  ],
+  "expected_knockout_areas": [
+    "Campaign execution",
+    "Metric interpretation",
+    "Copy quality"
+  ],
+  "scoring_notes": "Strong candidates show shipped campaigns, tool fluency, and practical reporting habits."
+}

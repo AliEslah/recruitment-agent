@@ -89,12 +89,25 @@ def test_relationships_are_conservative() -> None:
 def test_runtime_resume_uploads_are_ignored_and_fixture_exists() -> None:
     assert (ROOT / "tests/fixtures/resumes/jane_backend.txt").is_file()
     gitignore = (ROOT / ".gitignore").read_text()
-    assert "backend/data/resumes/" in gitignore
+    for expected in [
+        ".env",
+        ".env.*",
+        "backend/data/resumes/",
+        "backend/data/llm_failures/",
+        "frontend/node_modules/",
+        "frontend/.next/",
+        ".pytest_cache",
+        ".coverage",
+        "*.log",
+        "*.sqlite3",
+    ]:
+        assert expected in gitignore
 
 
 def test_pytest_markers_are_registered() -> None:
     pyproject = (ROOT / "pyproject.toml").read_text()
-    for marker in ["unit:", "db:", "mailpit:", "lmstudio:", "e2e:"]:
+    assert "--strict-markers" in pyproject
+    for marker in ["unit:", "db:", "mailpit:", "lmstudio:", "e2e:", "slow:"]:
         assert marker in pyproject
 
 

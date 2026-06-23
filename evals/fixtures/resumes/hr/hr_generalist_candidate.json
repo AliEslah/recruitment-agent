@@ -1,0 +1,20 @@
+{
+  "job_id": "hr_generalist",
+  "candidate_id": "hr-candidate-001",
+  "name": "Riley Chen",
+  "resume_text": "Riley Chen\nEmail: riley.chen.eval@example.com\nPeople Operations Specialist, Luma Analytics, 2021-2025\nManaged onboarding checklists for monthly new-hire cohorts, maintained BambooHR records, coordinated benefits enrollment questions, and routed employee relations intake to the HR business partner with confidential notes. Updated policy acknowledgements and prepared manager FAQ drafts for performance review cycles.\nOffice Coordinator, Luma Analytics, 2019-2021\nSupported employee documentation and vendor scheduling.\nSkills: BambooHR, onboarding, benefits coordination, employee relations intake, policy documentation.",
+  "expected_strengths": [
+    "HR operations ownership",
+    "HRIS data experience",
+    "Confidential employee relations intake"
+  ],
+  "expected_risks": [
+    "Limited evidence of independent manager coaching"
+  ],
+  "expected_missing_evidence": [
+    "Complex employee relations judgment",
+    "Policy interpretation example"
+  ],
+  "expected_recommendation_band": "POSSIBLE_MATCH",
+  "human_notes": "Relevant HR generalist-adjacent background; interview should validate judgment and independence."
+}
