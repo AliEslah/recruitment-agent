@@ -355,6 +355,25 @@ class LlmCache(TimestampMixin, Base):
     output_json: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
 
 
+class PilotFeedback(Base):
+    __tablename__ = "pilot_feedback"
+    __table_args__ = (
+        Index("ix_pilot_feedback_created_at", "created_at"),
+        Index("ix_pilot_feedback_type_created", "feedback_type", "created_at"),
+    )
+
+    id: Mapped[uuid.UUID] = uuid_pk()
+    user_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("users.id"))
+    candidate_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("candidates.id"))
+    job_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("jobs.id"))
+    interview_session_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("interview_sessions.id"))
+    feedback_type: Mapped[str] = mapped_column(String(100), nullable=False)
+    rating: Mapped[int] = mapped_column(Integer, nullable=False)
+    comment: Mapped[str | None] = mapped_column(Text)
+    metadata_json: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+
 class QuestionBankItem(TimestampMixin, Base):
     __tablename__ = "question_bank_items"
 

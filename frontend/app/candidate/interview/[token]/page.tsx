@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { CheckCircle2, Mail, Play, Send } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FeedbackForm } from "@/components/feedback-form";
 import { StatusBadge } from "@/components/status-badge";
 import { Button, EmptyState, ErrorState, Field, LoadingState, PageHeader, Panel, inputClass, textareaClass } from "@/components/ui";
 import { api } from "@/lib/api";
@@ -198,6 +199,12 @@ export default function CandidateInterviewPage() {
             <CheckCircle2 className="h-8 w-8 text-success" />
             <h2 className="mt-4 text-lg font-semibold">Interview completed</h2>
             <p className="mt-1 text-sm text-muted">{completedMessage || "Your interview has been completed. Thank you."}</p>
+            <div className="mt-5 border-t border-line pt-5">
+              <FeedbackForm
+                contextLabel="Rate the interview experience. This feedback is linked only to this interview session."
+                onSubmit={(rating, comment) => api.submitCandidateInterviewFeedback(token, { rating, comment: comment || null })}
+              />
+            </div>
           </Panel>
         ) : null}
       </div>

@@ -1,0 +1,30 @@
+[
+  {
+    "job_template_id": "backend_engineer",
+    "name": "Taylor Backend",
+    "email": "taylor.backend@example.local",
+    "phone": "555-0101",
+    "resume_fixture": "pilot_resumes/backend_engineer.txt"
+  },
+  {
+    "job_template_id": "sales_account_executive",
+    "name": "Jordan Sales",
+    "email": "jordan.sales@example.local",
+    "phone": "555-0102",
+    "resume_fixture": "pilot_resumes/sales_account_executive.txt"
+  },
+  {
+    "job_template_id": "customer_support_specialist",
+    "name": "Morgan Support",
+    "email": "morgan.support@example.local",
+    "phone": "555-0103",
+    "resume_fixture": "pilot_resumes/customer_support_specialist.txt"
+  },
+  {
+    "job_template_id": "finance_analyst",
+    "name": "Casey Finance",
+    "email": "casey.finance@example.local",
+    "phone": "555-0104",
+    "resume_fixture": "pilot_resumes/finance_analyst.txt"
+  }
+]

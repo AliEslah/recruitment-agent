@@ -1,0 +1,352 @@
+[
+  {
+    "job_family": "sales",
+    "seniority": "Mid-level",
+    "question_type": "FIXED",
+    "question": "Walk through a qualified opportunity you moved from discovery to close.",
+    "purpose": "Assess sales process ownership and deal reasoning.",
+    "evaluation_criteria": "Looks for qualification criteria, buyer problem, next-step control, forecast judgment, and evidence of outcome.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "sales",
+    "seniority": "Mid-level",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions pipeline ownership. Which metrics did you personally track, and how did they change?",
+    "purpose": "Validate claimed sales metrics with concrete ownership.",
+    "evaluation_criteria": "Accepts specific metrics, timeframe, scope, and candidate-owned actions; flags vague or team-only claims.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "sales",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Describe a time you had to rebuild trust with a buyer or internal partner.",
+    "purpose": "Assess communication, accountability, and follow-through.",
+    "evaluation_criteria": "Looks for ownership, clear communication, concrete follow-up, and measurable recovery.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "sales",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "Explain your method for deciding that an opportunity should be disqualified.",
+    "purpose": "Check for disciplined qualification rather than pursuing every lead.",
+    "evaluation_criteria": "Requires a structured method and willingness to disqualify unsupported opportunities.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "sales",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about the largest unsupported claim in the candidate's sales results.",
+    "purpose": "Prompt targeted evidence gathering.",
+    "evaluation_criteria": "Follow-up should request scope, timeframe, candidate contribution, and evidence.",
+    "weight": 0.12,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "customer_support",
+    "seniority": "Any",
+    "question_type": "FIXED",
+    "question": "Tell us about a difficult support case you resolved from first report to closure.",
+    "purpose": "Assess troubleshooting structure and customer communication.",
+    "evaluation_criteria": "Looks for issue isolation, updates, escalation judgment, and resolution confirmation.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "customer_support",
+    "seniority": "Any",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions ticket queues. What queue metrics did you use to manage quality and speed?",
+    "purpose": "Validate support operations experience.",
+    "evaluation_criteria": "Accepts specific metrics, prioritization logic, and quality controls.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "customer_support",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Give an example of explaining a technical issue in simple terms.",
+    "purpose": "Assess clarity and customer-centered writing.",
+    "evaluation_criteria": "Looks for plain language, accuracy, and customer understanding.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "customer_support",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "How do you handle a case when you cannot reproduce the customer's issue?",
+    "purpose": "Check for disciplined troubleshooting and escalation.",
+    "evaluation_criteria": "Requires data gathering, clear communication, and appropriate escalation; rejects guessing.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "customer_support",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about an unresolved support claim or missing troubleshooting detail.",
+    "purpose": "Prompt evidence-based clarification.",
+    "evaluation_criteria": "Follow-up should seek steps taken, customer impact, and final outcome.",
+    "weight": 0.12,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "operations",
+    "seniority": "Mid-level",
+    "question_type": "FIXED",
+    "question": "Describe an operating process you improved and the metric that changed.",
+    "purpose": "Assess process improvement and measurement.",
+    "evaluation_criteria": "Looks for baseline, intervention, measured result, and sustainability.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "operations",
+    "seniority": "Any",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions cross-functional coordination. Which teams were involved, and what did you own?",
+    "purpose": "Validate scope and ownership of operations work.",
+    "evaluation_criteria": "Accepts clear team interfaces, owned deliverables, cadence, and result.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "operations",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Tell us about a time you had to align stakeholders with different priorities.",
+    "purpose": "Assess stakeholder management and prioritization.",
+    "evaluation_criteria": "Looks for tradeoff clarity, communication, and follow-through.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "operations",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "Explain how you investigate a recurring operational miss.",
+    "purpose": "Check root-cause analysis depth.",
+    "evaluation_criteria": "Requires data review, process mapping, cause validation, and corrective action.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "operations",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about the weakest evidence for process ownership.",
+    "purpose": "Prompt deeper evidence on ownership.",
+    "evaluation_criteria": "Follow-up should request scope, metrics, and candidate-controlled changes.",
+    "weight": 0.12,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "hr",
+    "seniority": "Mid-level",
+    "question_type": "FIXED",
+    "question": "Describe a sensitive employee-relations issue you supported and how you documented it.",
+    "purpose": "Assess discretion, documentation, and escalation judgment.",
+    "evaluation_criteria": "Looks for privacy-aware handling, accurate notes, policy alignment, and escalation boundaries.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "hr",
+    "seniority": "Any",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions HR systems. Which workflows did you maintain, and how did you verify accuracy?",
+    "purpose": "Validate HR operations experience.",
+    "evaluation_criteria": "Accepts named workflows, data checks, process ownership, and outcomes.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "hr",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Tell us about a time you coached a manager through a people-process question.",
+    "purpose": "Assess practical guidance and communication.",
+    "evaluation_criteria": "Looks for policy consistency, clarity, and appropriate escalation.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "hr",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "How do you decide when an HR issue needs escalation?",
+    "purpose": "Check escalation judgment.",
+    "evaluation_criteria": "Requires defined triggers, documentation, and respect for role boundaries.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "hr",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about missing evidence for documentation or process consistency.",
+    "purpose": "Prompt evidence-based HR clarification.",
+    "evaluation_criteria": "Follow-up should request facts, steps, documentation, and outcome.",
+    "weight": 0.12,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "marketing",
+    "seniority": "Any",
+    "question_type": "FIXED",
+    "question": "Walk through a campaign you supported from brief to performance review.",
+    "purpose": "Assess campaign execution and measurement.",
+    "evaluation_criteria": "Looks for audience, channel choice, deliverables, metrics, and learning.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "marketing",
+    "seniority": "Any",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions campaign results. What was your contribution and how was the result measured?",
+    "purpose": "Validate marketing impact claims.",
+    "evaluation_criteria": "Accepts candidate-owned work, baseline, metric, and attribution limits.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "marketing",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Describe a time you used feedback to improve messaging.",
+    "purpose": "Assess adaptability and communication judgment.",
+    "evaluation_criteria": "Looks for feedback source, change made, and outcome.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "marketing",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "How do you know when a campaign is not working and should change?",
+    "purpose": "Check measurement discipline.",
+    "evaluation_criteria": "Requires clear success criteria, metric review, and decision logic.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "marketing",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about the least supported marketing result claim.",
+    "purpose": "Prompt evidence on campaign impact.",
+    "evaluation_criteria": "Follow-up should request metric source, timeframe, and candidate contribution.",
+    "weight": 0.12,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "finance",
+    "seniority": "Any",
+    "question_type": "FIXED",
+    "question": "Describe a financial analysis you built and the business question it answered.",
+    "purpose": "Assess analytical framing and communication.",
+    "evaluation_criteria": "Looks for source data, assumptions, method, insight, and business use.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "finance",
+    "seniority": "Any",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions forecasting or variance analysis. What inputs did you validate?",
+    "purpose": "Validate finance analysis claims.",
+    "evaluation_criteria": "Accepts specific inputs, checks, assumptions, and variance drivers.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "finance",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Tell us about a time you explained a financial insight to a business partner.",
+    "purpose": "Assess clear communication with non-finance stakeholders.",
+    "evaluation_criteria": "Looks for concise framing, tradeoffs, and business action.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "finance",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "How do you handle a report when source data does not reconcile?",
+    "purpose": "Check data validation discipline.",
+    "evaluation_criteria": "Requires investigation, documentation, stakeholder notice, and no unsupported conclusions.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "finance",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about any unsupported financial metric or assumption.",
+    "purpose": "Prompt source-backed clarification.",
+    "evaluation_criteria": "Follow-up should request source, calculation, timeframe, and ownership.",
+    "weight": 0.12,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "engineering",
+    "seniority": "Mid-level",
+    "question_type": "FIXED",
+    "question": "Walk through a backend service you designed and the tradeoffs you made.",
+    "purpose": "Assess system design and practical engineering judgment.",
+    "evaluation_criteria": "Looks for requirements, data model, API boundaries, failure modes, and tradeoffs.",
+    "weight": 0.2,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "engineering",
+    "seniority": "Any",
+    "question_type": "RESUME_VALIDATION",
+    "question": "Your resume mentions production services. Which reliability issue did you personally debug?",
+    "purpose": "Validate production ownership claims.",
+    "evaluation_criteria": "Accepts symptoms, investigation steps, root cause, fix, and prevention.",
+    "weight": 0.18,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "engineering",
+    "seniority": "Any",
+    "question_type": "SOFT_SKILL",
+    "question": "Describe a time you explained a technical tradeoff to a non-engineering partner.",
+    "purpose": "Assess communication and product collaboration.",
+    "evaluation_criteria": "Looks for clear framing, options, risks, and decision support.",
+    "weight": 0.14,
+    "is_mandatory": false
+  },
+  {
+    "job_family": "engineering",
+    "seniority": "Any",
+    "question_type": "KNOCKOUT",
+    "question": "How do you decide what tests are required before releasing a backend change?",
+    "purpose": "Check testing discipline.",
+    "evaluation_criteria": "Requires risk-based coverage, automated checks, and validation of failure paths.",
+    "weight": 0.16,
+    "is_mandatory": true
+  },
+  {
+    "job_family": "engineering",
+    "seniority": "Any",
+    "question_type": "DYNAMIC",
+    "question": "Ask a follow-up about the least supported engineering ownership claim.",
+    "purpose": "Prompt technical evidence gathering.",
+    "evaluation_criteria": "Follow-up should request scope, candidate contribution, technical details, and outcome.",
+    "weight": 0.12,
+    "is_mandatory": false
+  }
+]

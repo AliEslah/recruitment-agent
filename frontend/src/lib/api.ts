@@ -19,6 +19,10 @@ import type {
   JobCriteriaUpdate,
   LiveInterviewTurn,
   LlmCallLog,
+  PilotDashboardSummary,
+  PilotFeedback,
+  PilotFeedbackCreate,
+  RoleTemplate,
   TokenResponse,
   User,
 } from "./types";
@@ -158,6 +162,14 @@ export class ApiClient {
     return this.request<Job>("/api/v1/jobs", { method: "POST", body: payload });
   }
 
+  listRoleTemplates() {
+    return this.request<RoleTemplate[]>("/api/v1/templates/roles");
+  }
+
+  getRoleTemplate(templateId: string) {
+    return this.request<RoleTemplate>(`/api/v1/templates/roles/${templateId}`);
+  }
+
   calibrateJob(jobId: string) {
     return this.request<Job>(`/api/v1/jobs/${jobId}/calibrate`, { method: "POST" });
   }
@@ -280,6 +292,18 @@ export class ApiClient {
     return this.request<CommunicationLog[]>("/api/v1/admin/communications");
   }
 
+  adminFeedback() {
+    return this.request<PilotFeedback[]>("/api/v1/admin/feedback");
+  }
+
+  adminPilotSummary() {
+    return this.request<PilotDashboardSummary>("/api/v1/admin/pilot-summary");
+  }
+
+  submitFeedback(payload: PilotFeedbackCreate) {
+    return this.request<PilotFeedback>("/api/v1/feedback", { method: "POST", body: payload });
+  }
+
   interviewEntry(token: string) {
     return this.request<InterviewEntry>(`/api/v1/interview-entry/${token}`, { auth: false });
   }
@@ -313,6 +337,14 @@ export class ApiClient {
       method: "POST",
       auth: false,
       body: { client_session_nonce },
+    });
+  }
+
+  submitCandidateInterviewFeedback(token: string, payload: { rating: number; comment?: string | null }) {
+    return this.request<{ message: string }>(`/api/v1/interview-entry/${token}/feedback`, {
+      method: "POST",
+      auth: false,
+      body: payload,
     });
   }
 }

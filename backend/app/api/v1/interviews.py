@@ -13,12 +13,14 @@ from app.agents.shared.utils import append_security_event, is_interview_expired
 from app.api.deps import require_recruiter_user
 from app.core.config import get_settings
 from app.core.errors import ConflictError, ValidationAppError
-from app.db.models import AuditLog, CandidateStatus, InterviewSessionStatus, SecurityEventType, User
+from app.db.models import AuditLog, CandidateStatus, InterviewSessionStatus, PilotFeedback, SecurityEventType, User
 from app.db.session import get_session
 from app.repositories.candidates import CandidateRepository
+from app.repositories.feedback import FeedbackRepository
 from app.repositories.interviews import InterviewRepository
 from app.repositories.jobs import JobRepository
 from app.repositories.logs import LogRepository
+from app.schemas.feedback import CandidateInterviewFeedbackCreate, PilotFeedbackType
 from app.schemas.common import MessageResponse
 from app.schemas.interviews import (
     CandidateAnswerRequest,
@@ -357,3 +359,26 @@ async def complete_interview(
             template="interview_completed",
         )
     return MessageResponse(message="Interview completed.")
+
+
+@entry_router.post("/interview-entry/{token}/feedback", response_model=MessageResponse)
+async def candidate_interview_feedback(
+    token: str,
+    payload: CandidateInterviewFeedbackCreate,
+    session: AsyncSession = Depends(get_session),
+) -> MessageResponse:
+    interview = await InterviewRepository(session).get_by_token_hash(hash_token(token))
+    if interview.status != InterviewSessionStatus.COMPLETED:
+        raise ConflictError("Feedback can be submitted after interview completion.")
+    feedback = PilotFeedback(
+        user_id=None,
+        candidate_id=interview.candidate_id,
+        job_id=interview.job_id,
+        interview_session_id=interview.id,
+        feedback_type=PilotFeedbackType.CANDIDATE_INTERVIEW_FEEDBACK.value,
+        rating=payload.rating,
+        comment=payload.comment,
+        metadata_json={"source": "candidate_interview_completion"},
+    )
+    await FeedbackRepository(session).create(feedback)
+    return MessageResponse(message="Feedback submitted.")

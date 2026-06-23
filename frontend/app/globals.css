@@ -36,3 +36,22 @@ select {
 ::selection {
   background: rgba(19, 111, 99, 0.18);
 }
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  .printable-scorecard,
+  .printable-scorecard-summary {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

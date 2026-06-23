@@ -18,6 +18,7 @@ from app.db.models import (
     InterviewSession,
     LlmCallLog,
     Job,
+    PilotFeedback,
 )
 from app.schemas.llm_outputs import FinalScorecardOutput, InterviewEvaluationOutput
 
@@ -42,6 +43,8 @@ def test_expected_model_indexes_are_declared() -> None:
     assert "ix_communication_logs_created_at" in index_names(CommunicationLog)
     assert "ix_llm_call_logs_task_status_created" in index_names(LlmCallLog)
     assert "ix_llm_call_logs_input_hash" in index_names(LlmCallLog)
+    assert "ix_pilot_feedback_created_at" in index_names(PilotFeedback)
+    assert "ix_pilot_feedback_type_created" in index_names(PilotFeedback)
 
 
 def test_index_migration_is_present() -> None:

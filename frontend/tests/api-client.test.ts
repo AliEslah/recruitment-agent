@@ -52,6 +52,7 @@ describe("ApiClient auth headers", () => {
     await client.startInterview("raw-token");
     await client.answerInterview("raw-token", "Answer", "nonce-123");
     await client.completeInterview("raw-token", "nonce-123");
+    await client.submitCandidateInterviewFeedback("raw-token", { rating: 5, comment: "Clear flow." });
 
     for (const [, init] of vi.mocked(fetcher).mock.calls) {
       const headers = init?.headers as Headers;
@@ -106,6 +107,29 @@ describe("ApiClient auth headers", () => {
     expect(vi.mocked(fetcher).mock.calls[0][0]).toBe("http://api.test/api/v1/candidates/candidate-123/score/latest");
     expect(vi.mocked(fetcher).mock.calls[1][0]).toBe("http://api.test/api/v1/candidates/candidate-123/interviews");
     expect(vi.mocked(fetcher).mock.calls[2][0]).toBe("http://api.test/api/v1/jobs/job-123/interviews");
+    for (const [, init] of vi.mocked(fetcher).mock.calls) {
+      const headers = init?.headers as Headers;
+      expect(headers.get("Authorization")).toBe("Bearer token-123");
+    }
+  });
+
+  it("calls pilot template and feedback endpoints with the expected auth mode", async () => {
+    const fetcher = vi.fn(async () => jsonResponse({ ok: true })) as unknown as typeof fetch;
+    const client = new ApiClient({
+      baseUrl: "http://api.test",
+      fetcher,
+      getToken: () => "token-123",
+    });
+
+    await client.listRoleTemplates();
+    await client.submitFeedback({ feedback_type: "GENERAL_FEEDBACK", rating: 4, comment: "Useful" });
+    await client.adminFeedback();
+    await client.adminPilotSummary();
+
+    expect(vi.mocked(fetcher).mock.calls[0][0]).toBe("http://api.test/api/v1/templates/roles");
+    expect(vi.mocked(fetcher).mock.calls[1][0]).toBe("http://api.test/api/v1/feedback");
+    expect(vi.mocked(fetcher).mock.calls[2][0]).toBe("http://api.test/api/v1/admin/feedback");
+    expect(vi.mocked(fetcher).mock.calls[3][0]).toBe("http://api.test/api/v1/admin/pilot-summary");
     for (const [, init] of vi.mocked(fetcher).mock.calls) {
       const headers = init?.headers as Headers;
       expect(headers.get("Authorization")).toBe("Bearer token-123");

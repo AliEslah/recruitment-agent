@@ -1,0 +1,4 @@
+Taylor Backend
+Email: taylor.backend@example.local
+
+Backend Engineer with six years building Python and TypeScript services. Designed FastAPI APIs for account provisioning, moved background jobs from cron to a queue worker, and added structured logs and alerts for failed payments. Led a production incident review after an integration timeout caused delayed updates; added retries, idempotency keys, and regression tests. Comfortable with PostgreSQL schema design, service boundaries, code review, and collaborating with product managers on tradeoffs.

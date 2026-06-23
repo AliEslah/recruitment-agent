@@ -1,0 +1,100 @@
+[
+  {
+    "template_id": "sales_account_executive",
+    "title": "Sales Account Executive",
+    "department": "Sales",
+    "seniority_examples": ["Mid-level", "Senior"],
+    "raw_jd_starter": "We are hiring a Sales Account Executive to manage a qualified pipeline, run discovery, build value-based proposals, and close new business. The role partners with customer success, marketing, and product teams to understand buyer needs, maintain accurate CRM records, and forecast revenue. Strong candidates can qualify opportunities, handle objections, negotiate commercially sound agreements, and communicate clearly with buyers and internal stakeholders.",
+    "suggested_soft_skills": ["Discovery listening", "Clear communication", "Follow-through", "Commercial judgment"],
+    "suggested_knockout_areas": ["Cannot describe a structured sales process", "No evidence of pipeline ownership", "Poor written customer communication"],
+    "suggested_fixed_interview_questions": [
+      "Walk through a recent deal from discovery to close. What did you qualify, and what changed your approach?",
+      "How do you decide whether an opportunity should stay in the forecast?",
+      "Describe a time you handled a pricing or procurement objection."
+    ]
+  },
+  {
+    "template_id": "customer_support_specialist",
+    "title": "Customer Support Specialist",
+    "department": "Customer Support",
+    "seniority_examples": ["Entry-level", "Mid-level"],
+    "raw_jd_starter": "We are hiring a Customer Support Specialist to resolve customer issues through chat and email, document recurring problems, and work with product and engineering teams on escalations. The role requires clear writing, calm prioritization, accurate troubleshooting, and strong ownership of follow-up. Strong candidates can explain technical steps in plain language and maintain service quality under queue pressure.",
+    "suggested_soft_skills": ["Empathy in writing", "Prioritization", "Ownership", "Problem decomposition"],
+    "suggested_knockout_areas": ["Cannot show a troubleshooting method", "Dismissive customer communication", "No evidence of queue discipline"],
+    "suggested_fixed_interview_questions": [
+      "Tell us about a complex support case you resolved. How did you isolate the cause?",
+      "How do you prioritize a queue when several customers are waiting?",
+      "Share an example of turning a frustrated customer interaction around."
+    ]
+  },
+  {
+    "template_id": "operations_manager",
+    "title": "Operations Manager",
+    "department": "Operations",
+    "seniority_examples": ["Mid-level", "Senior"],
+    "raw_jd_starter": "We are hiring an Operations Manager to improve day-to-day delivery, track operating metrics, coordinate cross-functional work, and remove process bottlenecks. The role owns operating cadences, vendor or internal stakeholder follow-up, and root-cause analysis for recurring misses. Strong candidates can turn ambiguous operating problems into measurable processes and practical changes.",
+    "suggested_soft_skills": ["Structured problem solving", "Stakeholder alignment", "Prioritization", "Accountability"],
+    "suggested_knockout_areas": ["No measurable operations examples", "Cannot explain root-cause analysis", "Weak follow-up discipline"],
+    "suggested_fixed_interview_questions": [
+      "Describe an operational process you improved. What changed in the metrics?",
+      "How do you run follow-up when several teams own different parts of the work?",
+      "Tell us about a recurring miss you investigated and fixed."
+    ]
+  },
+  {
+    "template_id": "hr_generalist",
+    "title": "HR Generalist",
+    "department": "People",
+    "seniority_examples": ["Mid-level"],
+    "raw_jd_starter": "We are hiring an HR Generalist to support employee relations, onboarding, policy operations, HR systems, and manager guidance. The role requires careful documentation, discretion, process consistency, and clear escalation judgment. Strong candidates can balance employee experience with policy requirements and maintain accurate records.",
+    "suggested_soft_skills": ["Discretion", "Clear documentation", "Manager coaching", "Process consistency"],
+    "suggested_knockout_areas": ["Casual handling of sensitive records", "Cannot explain escalation boundaries", "No evidence of structured HR operations"],
+    "suggested_fixed_interview_questions": [
+      "Describe a sensitive workplace issue you supported. How did you document and escalate it?",
+      "How do you help managers apply policy consistently?",
+      "Tell us about an onboarding or HR process you improved."
+    ]
+  },
+  {
+    "template_id": "marketing_specialist",
+    "title": "Marketing Specialist",
+    "department": "Marketing",
+    "seniority_examples": ["Entry-level", "Mid-level"],
+    "raw_jd_starter": "We are hiring a Marketing Specialist to plan campaigns, create clear content briefs, coordinate launches, measure performance, and improve messaging through data. The role works with sales, design, and product teams to execute campaigns across email, web, and social channels. Strong candidates can connect audience insight, execution quality, and measurable campaign results.",
+    "suggested_soft_skills": ["Message clarity", "Project coordination", "Analytical thinking", "Creative judgment"],
+    "suggested_knockout_areas": ["No campaign measurement examples", "Cannot explain audience or channel choices", "Weak project follow-through"],
+    "suggested_fixed_interview_questions": [
+      "Walk through a campaign you supported. What was the audience, channel plan, and result?",
+      "How do you decide whether campaign messaging is working?",
+      "Describe a launch with multiple stakeholders and how you kept it on track."
+    ]
+  },
+  {
+    "template_id": "finance_analyst",
+    "title": "Finance Analyst",
+    "department": "Finance",
+    "seniority_examples": ["Entry-level", "Mid-level"],
+    "raw_jd_starter": "We are hiring a Finance Analyst to build reports, analyze budget-to-actual variance, support forecasting, and communicate financial insights to business partners. The role requires spreadsheet rigor, data validation, clear assumptions, and concise explanation of drivers. Strong candidates can identify anomalies, trace source data, and explain tradeoffs.",
+    "suggested_soft_skills": ["Analytical rigor", "Clear explanation", "Attention to detail", "Business partnership"],
+    "suggested_knockout_areas": ["Cannot explain variance analysis", "Weak data validation habits", "No evidence of clear financial communication"],
+    "suggested_fixed_interview_questions": [
+      "Tell us about a financial analysis you built. What assumptions mattered most?",
+      "How do you validate source data before sharing a report?",
+      "Describe a time you explained a variance or forecast change to a non-finance partner."
+    ]
+  },
+  {
+    "template_id": "backend_engineer",
+    "title": "Backend Engineer",
+    "department": "Engineering",
+    "seniority_examples": ["Mid-level", "Senior"],
+    "raw_jd_starter": "We are hiring a Backend Engineer to design and operate APIs, data models, background jobs, and service integrations. The role requires production debugging, testing discipline, observability, and collaboration with product and frontend partners. Strong candidates can explain technical tradeoffs, ship maintainable services, and diagnose reliability issues.",
+    "suggested_soft_skills": ["Technical communication", "Ownership", "Debugging discipline", "Collaboration"],
+    "suggested_knockout_areas": ["Cannot explain production debugging", "No evidence of testing discipline", "Poor API or data modeling reasoning"],
+    "suggested_fixed_interview_questions": [
+      "Walk through a backend system you designed. What tradeoffs did you make?",
+      "Describe a production issue you debugged and how you prevented recurrence.",
+      "How do you decide what to test in a service change?"
+    ]
+  }
+]

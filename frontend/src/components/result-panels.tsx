@@ -90,7 +90,15 @@ export function InterviewEvaluationPanel({ evaluation }: { evaluation: Interview
 export function FinalScorecardPanel({ scorecard }: { scorecard: FinalScorecard }) {
   return (
     <Panel>
-      <h2 className="text-lg font-semibold">Final scorecard</h2>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="text-lg font-semibold">Final scorecard</h2>
+          <p className="mt-1 text-sm text-muted">Generated {new Date(scorecard.created_at).toLocaleString()}</p>
+        </div>
+        <p className="max-w-xl rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-medium leading-6 text-warning">
+          AI-generated recommendations are advisory. A qualified human reviewer must make the final hiring decision.
+        </p>
+      </div>
       <div className="mt-4 grid gap-3 md:grid-cols-5">
         <Metric label="Resume" value={formatPercent(scorecard.resume_score)} />
         <Metric label="Interview" value={formatPercent(scorecard.interview_score)} />

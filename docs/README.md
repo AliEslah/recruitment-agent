@@ -8,6 +8,11 @@ This documentation set is organized for public GitHub release. Start with the ro
 - [Local LM Studio](local-llm.md)
 - [Frontend](frontend.md)
 - [Evaluation](evaluation.md)
+- [Pilot runbook](PILOT_RUNBOOK.md)
+- [Pilot manual verification](PILOT_MANUAL_VERIFICATION.md)
+- [Pilot verification status](PILOT_VERIFICATION_STATUS.md)
+- [Operational checklist](OPERATIONAL_CHECKLIST.md)
+- [Pilot limitations](PILOT_LIMITATIONS.md)
 - [Limitations](limitations.md)
 
 ## Reference Guides
@@ -17,6 +22,7 @@ This documentation set is organized for public GitHub release. Start with the ro
 - [Security](security.md)
 - [Deployment](deployment.md)
 - [Pilot guidance](pilot.md)
+- [Next steps](NEXT_STEPS.md)
 - [Commercial licensing](commercial.md)
 - [Development workflow](development-workflow.md)
 - [Frontend dependency audit](../frontend/docs/DEPENDENCY_AUDIT.md)

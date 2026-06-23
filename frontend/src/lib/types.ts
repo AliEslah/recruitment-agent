@@ -16,6 +16,12 @@ export type CandidateStatus =
 export type InterviewSessionStatus = "DRAFT" | "INVITED" | "OTP_PENDING" | "ACTIVE" | "COMPLETED" | "EXPIRED" | "CANCELLED";
 export type HumanDecision = "APPROVE" | "REJECT" | "HOLD";
 export type QuestionType = "FIXED" | "RESUME_VALIDATION" | "SOFT_SKILL" | "KNOCKOUT" | "DYNAMIC" | "FOLLOW_UP";
+export type PilotFeedbackType =
+  | "RECRUITER_SCORECARD_FEEDBACK"
+  | "HIRING_MANAGER_SCORECARD_FEEDBACK"
+  | "CANDIDATE_INTERVIEW_FEEDBACK"
+  | "BUG_REPORT"
+  | "GENERAL_FEEDBACK";
 
 export type User = {
   id: string;
@@ -68,6 +74,17 @@ export type JobCreate = {
   employment_type?: string | null;
   salary_range?: string | null;
   raw_jd: string;
+};
+
+export type RoleTemplate = {
+  template_id: string;
+  title: string;
+  department: string;
+  seniority_examples: string[];
+  raw_jd_starter: string;
+  suggested_soft_skills: string[];
+  suggested_knockout_areas: string[];
+  suggested_fixed_interview_questions: string[];
 };
 
 export type JobCriteriaUpdate = {
@@ -273,4 +290,37 @@ export type CommunicationLog = {
   status: string;
   metadata_json: Record<string, unknown> | null;
   created_at: string;
+};
+
+export type PilotFeedback = {
+  id: string;
+  user_id: string | null;
+  candidate_id: string | null;
+  job_id: string | null;
+  interview_session_id: string | null;
+  feedback_type: string;
+  rating: number;
+  comment: string | null;
+  metadata_json: Record<string, unknown> | null;
+  created_at: string;
+};
+
+export type PilotFeedbackCreate = {
+  candidate_id?: string | null;
+  job_id?: string | null;
+  interview_session_id?: string | null;
+  feedback_type: PilotFeedbackType;
+  rating: number;
+  comment?: string | null;
+  metadata_json?: Record<string, unknown> | null;
+};
+
+export type PilotDashboardSummary = {
+  jobs_count: number;
+  candidates_count: number;
+  interviews_completed_count: number;
+  feedback_count: number;
+  recent_feedback: PilotFeedback[];
+  recent_llm_failures: LlmCallLog[];
+  recent_audit_events: AuditLog[];
 };

@@ -47,6 +47,7 @@ docker compose up -d postgres mailpit
 uv sync --dev
 uv run alembic upgrade head
 uv run python -m app.scripts.seed_dev_users
+uv run python -m app.scripts.seed_pilot_data
 uv run uvicorn app.main:app --app-dir backend --reload
 ```
 
@@ -135,6 +136,61 @@ uv run python -m app.scripts.run_evals --all
 
 The public repository keeps a selected final synthetic report at [evals/reports/final_42_of_42_eval_report.md](evals/reports/final_42_of_42_eval_report.md). See [docs/evaluation.md](docs/evaluation.md).
 
+## Pilot Readiness
+
+Phase 4 pilot assets are included for controlled pilots with 2-5 recruiting teams. The pilot seed command creates users, question-bank starter content, draft demo jobs, and synthetic candidate input records only. It does not seed fake AI scores, fake interview evaluations, fake final scorecards, or fake LLM output.
+
+Phase 4B is operational verification, not evaluation-quality testing. Do not run full or stage-specific LLM evals for pilot verification. Use only the fixture dry run:
+
+```bash
+uv run python -m app.scripts.run_evals --dry-run-fixtures
+```
+
+`uv run python -m app.scripts.check_lmstudio` is a tiny LM Studio health diagnostic, not a recruiting workflow or quality eval.
+
+```bash
+PILOT_SEED_PASSWORD='replace-me' uv run python -m app.scripts.seed_pilot_data
+```
+
+Local verification setup:
+
+```bash
+docker compose up -d postgres mailpit
+uv run alembic upgrade head
+
+export RECRUITING_LLM_MODEL=qwen/qwen3-4b-2507
+export LM_STUDIO_BASE_URL=http://localhost:1234/v1
+export LM_STUDIO_API_KEY=lm-studio
+
+uv run python -m app.scripts.check_lmstudio
+uv run python -m app.scripts.run_evals --dry-run-fixtures
+
+uv run python -m app.scripts.seed_dev_users
+uv run python -m app.scripts.seed_pilot_data
+
+docker compose up -d --build backend
+
+cd frontend
+npm run dev
+```
+
+Automated pilot verification:
+
+```bash
+scripts/verify_pilot_readiness.sh
+```
+
+Pilot flow:
+
+1. Create a job from a raw JD or use a role template to prefill editable fields.
+2. Run real LM Studio calibration and approve criteria.
+3. Upload and process resumes through the real candidate workflow.
+4. Approve shortlist decisions.
+5. Send a secure chat interview invite.
+6. Complete and evaluate the interview.
+7. Generate the final scorecard, print or save it through browser print, and submit feedback.
+8. Review admin pilot summary and feedback.
+
 ## Validation
 
 Backend:
@@ -168,6 +224,12 @@ npm run build
 - [Security](docs/security.md)
 - [Deployment](docs/deployment.md)
 - [Pilot guidance](docs/pilot.md)
+- [Pilot runbook](docs/PILOT_RUNBOOK.md)
+- [Pilot manual verification](docs/PILOT_MANUAL_VERIFICATION.md)
+- [Pilot verification status](docs/PILOT_VERIFICATION_STATUS.md)
+- [Operational checklist](docs/OPERATIONAL_CHECKLIST.md)
+- [Pilot limitations](docs/PILOT_LIMITATIONS.md)
+- [Next steps](docs/NEXT_STEPS.md)
 - [Limitations](docs/limitations.md)
 - [Roadmap](docs/roadmap.md)
 - [Commercial licensing](docs/commercial.md)
