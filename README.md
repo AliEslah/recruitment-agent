@@ -37,6 +37,21 @@ This repository is decision-support software for local MVP exploration. AI-gener
 - Local services: Docker Compose runs PostgreSQL, Mailpit, backend, and a one-shot migration service. LM Studio runs separately on the host.
 - Evaluation: synthetic fixtures and report-only checks under `evals/`, using the same prompts and local LM Studio path as product code.
 
+```mermaid
+flowchart LR
+    user["Recruiter, manager, admin, or candidate"] --> frontend["Next.js frontend"]
+    frontend --> api["FastAPI backend"]
+    api --> auth["JWT auth and RBAC"]
+    api --> db["PostgreSQL via SQLAlchemy and Alembic"]
+    api --> mail["Mailpit or SMTP email"]
+    api --> files["Resume parsing and redaction"]
+    api --> graphs["LangGraph workflows"]
+    graphs --> lmstudio["LM Studio local OpenAI-compatible API"]
+    graphs --> review["Human review checkpoints"]
+    api --> logs["Audit, communication, and LLM call logs"]
+    evals["Synthetic eval fixtures"] --> graphs
+```
+
 ## Quick Start
 
 Prerequisites: Python 3.11+, `uv`, Docker, Docker Compose, Node.js, npm, and LM Studio with `qwen/qwen3-4b-2507` loaded.
